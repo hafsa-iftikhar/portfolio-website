@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
+  <title>Contact Us - Brand Curb</title>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Baloo 2', cursive;
+    }
+
+    /* Body and Typography */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Header Styles */
+    .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(124, 133, 141, 0.85); /* Semi-transparent background */
+  border-bottom: 2px solid rgba(6, 82, 141, 0.85); /* Semi-transparent border */
+  box-shadow: 0 2px 5px rgba(6, 4, 4, 0.1);
+  z-index: 1000;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+}
+
+.header-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap; /* Prevent wrapping */
+  width: 100%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo-img {
+    width: 50px; /* Adjust the width as needed */
+    height: auto; /* Keeps the image proportional */
+  }
+
+.nav {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 15px; /* Space between links */
+  flex-wrap: nowrap; /* Ensure links stay horizontal */
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #1c1c1c;
+  padding: 10px 15px;
+  font-weight: normal;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: rgb(193, 200, 208);
+}
+
+.cta {
+  background: rgb(5, 40, 102);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.cta:hover {
+  background: rgb(36, 40, 47);
+} 
+    /* Contact Section */
+    h2 {
+      margin-bottom: 15px;
+      font-size: 28px;
+      color: #007bff;
+    }
+
+    a {
+      text-decoration: none;
+      color: #007bff;
+      transition: color 0.3s;
+    }
+
+    a:hover {
+      color: #0056b3;
+    }
+
+    /* Fix Header Overlap */
+    body::before {
+      content: "";
+      display: block;
+      height: 80px;
+    }
+
+    /* Center the Contact Section */
+    body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+}
+
+.contact-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 50px 70px; /* Reduced padding to move the container up */
+  background-color: #edeff1;
+  margin-top: -40px;
+}
+
+.contact-details {
+  flex: 1;
+  max-width: 45%;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.contact-details h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.detail {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.detail i {
+  font-size: 20px;
+  color: #007bff;
+  margin-right: 15px;
+}
+
+.detail div {
+  font-size: 16px;
+  color: #555;
+}
+
+.map-container {
+  flex: 1;
+  max-width: 50%;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: white;
+}
+
+iframe {
+  width: 100%;
+  height: 270px;
+  border: 0;
+  border-radius: 8px;
+}
+
+/* Footer Styling */
+.footer {
+  background-color: rgb(217, 217, 218); /* Dark gray background */
+  padding: 20px 0; /* Vertical padding */
+  width: 100%; /* Full width of the footer */
+  position: fixed; /* Sticks to the bottom */
+  bottom: 0;
+  left: 0;
+}
+
+.footer-container {
+  max-width: 1350px;
+  margin: 0 auto;
+  padding: 0 20px; /* Horizontal padding */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Responsive layout for smaller screens */
+}
+
+.footer-social-media h4 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #1c1c1c;
+}
+
+.social-media-links {
+  display: flex;
+  gap: 15px; /* Space between icons */
+}
+
+.social-media-links a {
+  color: #090909; /* White icons */
+  font-size: 22px; /* Icon size */
+  transition: color 0.3s ease;
+  font-weight: 8000px;
+}
+
+.social-media-links a:hover {
+  color: #6d6d6d; /* Highlight color on hover */
+}
+
+.footer-copyright {
+  text-align: right;
+  font-size: 15px;
+  color: #000000;
+  font-weight: bolder;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column; /* Stack elements on small screens */
+    text-align: center;
+  }
+
+  .footer-copyright {
+    margin-top: 10px;
+    text-align: center;
+  }
+}
+
+</style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-box">
+      <div class="logo">
+        <img src="IC.png" alt="Brand Logo" class="logo-img">
+      </div>
+      <nav class="nav">
+        <ul class="nav-links">
+            <li><a href="header.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="catalogue.html">Catalogue</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="contact-details">
+        <h2>Get In Touch With Us Now!</h2>
+        <div class="detail">
+            <i class="fas fa-phone"></i>
+            <div>+92 3702490300</div>
+        </div>
+        <div class="detail">
+            <i class="fas fa-envelope"></i>
+            <div>ictextilelimited@gmail.com</div>
+        </div>
+        <div class="detail">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>Karachi, Pakistan</div>
+        </div>
+        <div class="detail">
+            <i class="fas fa-clock"></i>
+            <div>Monday to Friday: 10:00 AM - 5:00 PM</div>
+        </div>
+    </div>
+    
+      <!-- Map Section -->
+      <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3617.1634182510757!2d67.08063887537415!3d24.96055407786406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjTCsDU3JzM4LjAiTiA2N8KwMDQnNTkuNiJF!5e0!3m2!1sen!2s!4v1736088990419!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-social-media">
+        <h4>Follow Us</h4>
+        <div class="social-media-links">
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/ic_textile/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/+923702490300" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <p>&copy; "IC Textile: Where Innovation Meets Style, Crafting Quality You Can Trust!"</p>
+      </div>
+    </div>
+  </footer>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>

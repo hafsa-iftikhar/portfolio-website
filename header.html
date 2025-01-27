@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
+  <title>Brand Curb</title>
+  <style>
+    /* General Reset */
+    * {
+      font-family: 'Baloo 2', cursive;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* writing */
+    .hero-text h1, .hero-text p, .second-section h2, .second-section p {
+    font-family: 'Baloo 2', cursive;
+    text-align: justify;
+}
+
+.hero-text p, .second-section p, .third-section p {
+    text-align: justify;
+}
+/* Header Styles */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(124, 133, 141, 0.85); /* Semi-transparent background */
+  border-bottom: 2px solid rgba(6, 82, 141, 0.85); /* Semi-transparent border */
+  box-shadow: 0 2px 5px rgba(6, 4, 4, 0.1);
+  z-index: 1000;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+}
+
+.header-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap; /* Prevent wrapping */
+  width: 100%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo-img {
+    width: 50px; /* Adjust the width as needed */
+    height: auto; /* Keeps the image proportional */
+  }
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 15px; /* Space between links */
+  flex-wrap: nowrap; /* Ensure links stay horizontal */
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #1c1c1c;
+  padding: 10px 15px;
+  font-weight: normal;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: rgb(193, 200, 208);
+}
+
+.cta {
+  background: rgb(5, 40, 102);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.cta:hover {
+  background: rgb(36, 40, 47);
+}
+
+/* First Section */
+.hero {
+    display: flex;
+    flex-wrap: wrap; /* Allow content to wrap for responsiveness */
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    background-color: #e0e0e0;
+    min-height: 100vh;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    gap: 20px; /* Add spacing between elements on wrap */
+}
+
+.hero-text {
+    max-width: 50%; /* Limit text width for desktops */
+    text-align: justify;
+    flex: 1;
+    margin-right: 20px;
+}
+
+.hero-text h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: left;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #555;
+}
+
+.button-container {
+  text-align: left;
+  margin-top: 20px;
+}
+
+.custom-button {
+  background-color: #396997; /* Professional blue */
+  color: white;
+  padding: 15px 30px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.custom-button:hover {
+  background-color: #063c84; /* Slightly darker blue on hover */
+  transform: scale(1.05); /* Slight zoom effect */
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero-image {
+    flex: 1; /* Equal spacing with text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.hero-image img {
+    max-width: 90%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Scroll to second section button */
+.scroll-button {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    border: 1px solid #ddd;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.scroll-button:hover {
+    background: lightgray;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Second Section */
+.second-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #fbfcfc; /* Soft light blue background */
+  padding: 20px;
+}
+
+.content-container {
+  display: flex; /* Use flexbox to align items horizontally */
+  justify-content: flex-start; /* Align items to the start */
+  align-items: center;
+  max-width: 1000px;
+  width: 100%;
+  background: #d4d5d5;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  gap: 40px; /* Space between the heading and the content */
+}
+
+.second-section h2 {
+  font-size: 3rem; /* Adjust heading size */
+  font-weight: bold;
+  color: #2c3e50; /* Darker color for contrast */
+  background: none; /* Remove the background gradient */
+  padding: 15px 25px; /* Adjust padding */
+  margin-bottom: 20px; /* Add space below the heading */
+  border-left: 5px solid #07609c; /* Add a left border for emphasis */
+  text-transform: uppercase; /* Make text uppercase for emphasis */
+  letter-spacing: 2px; /* Add letter spacing for a more spaced-out look */
+  text-align: left; /* Align text to the left */
+  box-shadow: none; /* Remove shadow effect */
+}
+
+.order-details {
+  text-align: left; 
+}
+
+.second-section p {
+  font-size: 1.1rem;
+  color: #171616;
+  font-weight: 900;
+  line-height: 1.6;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.order-steps {
+  list-style-type: none;
+  padding: 0;
+  font-size: 1rem;
+  text-align: left;
+  margin: 0;
+}
+
+.order-steps li {
+  margin-bottom: 12px;
+  line-height: 1.6;
+  padding: 12px 18px;
+  background: linear-gradient(135deg, #486186, #5a92d3); /* Gradient bubble effect */
+  border-radius: 12px;
+  color: #fff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.order-steps li:hover {
+  transform: translateY(-5px); /* Subtle lift effect on hover */
+  background: linear-gradient(135deg, #2f5587, #7fa2c3); /* Lighter gradient on hover */
+}
+
+.order-steps strong {
+  font-weight: bolder;
+  color: #ffffff;
+}
+.order-steps li strong {
+  color: #000000; /* Replace with your desired color */
+}
+
+/* Third Section */
+/* Section - Services */
+.services {
+  background-color: #fff;
+  padding: 50px 15px;
+  text-align: center;
+}
+
+.services h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.services p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 40px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: bold;
+}
+
+/* Service Cards Container */
+.service-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.service-cards p{
+  font-weight: 100;
+}
+
+.service-card {
+  background-color: #f9f9f9;
+  padding: 30px; /* Increased padding */
+  width: 320px; /* Increased width */
+  height: 320px; /* Increased height */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  text-align: justify; /* Justify the text inside the cards */
+  border-radius: 8px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.6s forwards;
+}
+
+/* Card Hover Effects */
+.service-card:hover {
+  transform: translateY(-10px);
+  background-color: #89939b;
+}
+
+/* Service Card Title */
+.service-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  font-weight: bold;
+  text-align: center;
+  color: #04255e;
+}
+
+/* Service Card Paragraph */
+.service-card p {
+  font-size: 1rem;
+  color: #373737;
+  line-height: 1.5;
+  word-wrap: break-word; /* Prevent overflow */
+  text-align: justify; /* Justify the paragraph text */
+}
+
+/* Fade-in animation for card */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .service-cards {
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .service-card {
+    width: 90%; /* Increase width for smaller screens */
+    max-width: 400px; /* Set a max-width */
+    height: auto;
+  }
+
+  .services h2 {
+    font-size: 2rem;
+  }
+
+  .services p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .services p {
+    font-size: 0.9rem;
+  }
+
+  .service-card {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+  }
+}
+    /* Modal Styles */
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed;
+      z-index: 1001;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.4);
+      padding-top: 60px;
+    }
+
+    .modal-content {
+      background-color: #fefefe;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 90%;
+      max-width: 500px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal-content h2 {
+      margin-bottom: 20px;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: black;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      outline: none;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: rgb(57, 104, 137);
+    }
+
+    .btn {
+      background-color: rgb(76, 94, 130);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      display: block;
+      margin: 10px auto 0;
+    }
+
+    .btn:hover {
+      background-color: rgb(105, 137, 151);
+    }
+
+    .calendar-container, .form-container {
+      margin: 20px 0;
+    }
+
+    .time-slot {
+      margin: 5px;
+      padding: 10px;
+      display: inline-block;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .time-slot.selected {
+      background-color: rgb(85, 116, 146);
+      color: white;
+      border-color: darkorange;
+    }
+
+/* Footer Styling */
+.footer {
+  background-color: rgb(217, 217, 218); /* Dark gray background */
+  padding: 0.7px; /* Vertical padding */
+  width: 100%; /* Full width of the footer */
+  position: fixed; /* Sticks to the bottom */
+  bottom: 0;
+  left: 0;
+}
+
+.footer-container {
+  max-width: 1350px;
+  margin: 0 auto;
+  padding: 0 20px; /* Horizontal padding */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Responsive layout for smaller screens */
+}
+
+.footer-social-media h4 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #1c1c1c;
+}
+
+.social-media-links {
+  display: flex;
+  gap: 15px; /* Space between icons */
+}
+
+.social-media-links a {
+  color: #090909; /* White icons */
+  font-size: 16px; /* Icon size */
+  transition: color 0.3s ease;
+}
+
+.social-media-links a:hover {
+  color: #6d6d6d; /* Highlight color on hover */
+}
+
+.footer-copyright {
+  text-align: right;
+  font-size: 16px;
+  color: #505050;
+  font-weight: bolder;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column; /* Stack elements on small screens */
+    text-align: center;
+  }
+
+  .footer-copyright {
+    margin-top: 10px;
+    text-align: center;
+  }
+}
+
+/* Responsive Styling for Smaller Screens */
+@media (max-width: 768px) {
+  .header-box {
+    flex-wrap: nowrap; /* Prevent wrapping */
+    overflow-x: auto; /* Allow horizontal scrolling if content overflows */
+  }
+
+  .nav-links {
+    flex-shrink: 0; /* Prevent shrinking */
+    gap: 10px; /* Adjust spacing for smaller screens */
+  }
+
+  .nav-links a {
+    padding: 8px 12px; /* Slightly reduce padding */
+  }
+
+  .cta {
+    padding: 8px 15px; /* Adjust button size */
+  }
+}
+
+ /* Responsive Design */
+ @media (max-width: 480px) {
+      .logo {
+        font-size: 24px;
+      }
+
+      .nav-links a {
+        font-size: 14px;
+      }
+
+      .cta {
+        font-size: 14px;
+        padding: 8px 15px;
+      }
+
+      .footer-logo {
+        font-size: 24px;
+      }
+    }
+
+/*1 sectionn*/
+@media (max-width: 480px) {
+  .logo {
+    font-size: 24px; /* Reduces logo size */
+  }
+
+  .nav-links a {
+    font-size: 14px; /* Reduces font size of links */
+  }
+
+  .cta {
+    font-size: 14px; /* Reduces button font size */
+    padding: 8px 12px;
+  }
+}
+@media (max-width: 480px) {
+    .hero-text h1 {
+        font-size: 28px; /* Further adjust font size for mobile */
+    }
+
+    .hero-text p {
+        font-size: 0.8rem; /* Smaller text for very small screens */
+    }
+
+    .hero-buttons a {
+        padding: 8px 12px; /* Adjust button size for mobile */
+        font-size: 0.9rem;
+    }
+
+    .hero-image img {
+        max-width: 90%; /* Increase image width for tiny screens */
+    }
+}
+
+/* 3 section */
+@media (max-width: 768px) {
+    .second-section h2 {
+        font-size: 2rem; /* Smaller font size for smaller screens */
+        padding: 15px; /* Adjust padding for smaller screens */
+        height: 250px; /* Adjust height for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .second-section h2 {
+        font-size: 1.8rem; /* Smaller font size for mobile */
+        padding: 10px; /* Reduce padding for mobile */
+        height: 200px; /* Adjust height for mobile */
+    }
+}
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-box">
+      <div class="logo">
+        <img src="IC.png" alt="Brand Logo" class="logo-img">
+      </div>
+      <nav class="nav">
+        <ul class="nav-links">
+            <li><a href="header.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="catalogue.html">Catalogue</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="cta" id="scheduleMeetingBtn">Schedule a Meeting</button>
+    </div>
+  </header>
+
+  <!-- First Section -->
+  <section class="hero">
+    <div class="hero-text">
+        <h1>Welcome to Iftikhar Corporation</h1>
+        <p>At Iftikhar Corporation, we pride ourselves on being a trusted name in the textile industry, specializing in transforming premium-quality yarn into exceptional fabrics and garments. We begin by carefully selecting the finest raw materials, ensuring each thread meets the highest standards of durability, comfort, and elegance. Our skilled artisans and advanced technology work together to create products that reflect precision and quality, whether it’s in classic designs or contemporary styles. 
+          <br> <br>
+          Each garment we produce embodies our passion for craftsmanship and dedication to customer satisfaction. At Iftikhar Corporation, excellence is at the heart of everything we do, shaping every fabric and garment to meet the expectations of quality, reliability, and trust.</p>
+          <div class="button-container">
+          <a href="#contact" class="custom-button">Explore Our Services</a>
+        </div>
+    </div>
+    <div class="hero-image">
+        <img src="p3.jpg" alt="Nature" class="responsive">
+    </div>
+</section>
+
+<!-- Second Section -->
+<section class="second-section">
+  <div class="content-container">
+    <h2>Crafting Excellence, Stitch by Stitch</h2>
+    <div class="order-details">
+      <p>Placing an order with us is simple. Follow these easy steps:</p>
+      <ul class="order-steps">
+        <li><strong>Browse Our Catalog:</strong> Find the perfect match for your business.</li>
+        <li><strong>Submit Your Order:</strong> Send order details, fabric type, and quantity.</li>
+        <li><strong>Order Confirmation:</strong> We confirm your order with an estimated delivery date.</li>
+        <li><strong>Production & Shipping:</strong> Production starts, and your order is shipped.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<!-- Third Section -->
+<section class="services">
+  <h2>Our Services</h2>
+  <p>At Iftikhar Corporation, we are driven by a passion for excellence and a commitment to customer satisfaction.<br>
+    Explore our core services:</p>
+  <div class="service-cards">
+    <div class="service-card">
+      <h3>Tailored Product Solutions</h3>
+      <p>We specialize in offering high-quality, customized products that cater to your specific requirements. Our team carefully selects each item to ensure it meets the highest standards, delivering unparalleled value to your business or personal needs.</p>
+    </div>
+    <div class="service-card">
+      <h3>Consulting & Expert Guidance</h3>
+      <p>With years of experience in the industry, our team of experts provides professional consulting services to help your business reach its full potential. Whether you need advice on strategy, operations, or improving efficiency, we are here to guide you every step of the way.</p>
+    </div>
+    <div class="service-card">
+      <h3>Customer Support Excellence</h3>
+      <p>Your satisfaction is our priority. We offer exceptional customer support designed to resolve any concerns and ensure that your experience with Iftikhar Corporation is always seamless. Our team is available to assist you, providing fast and reliable solutions whenever you need them.</p>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Modal -->
+  <div id="bookingModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeModal">&times;</span>
+      <div class="calendar-container">
+        <h2>Select a Date</h2>
+        <input type="date" id="meetingDate" required>
+        <div id="timeSlots" class="hidden">
+          <h3>Select a Time</h3>
+          <div id="timeOptions"></div>
+          <button id="nextButton" class="btn hidden">Next</button>
+        </div>
+      </div>
+      <div class="form-container hidden" id="meetingFormContainer">
+        <form id="bookingForm">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required>
+          </div>
+          <div class="form-group">
+            <label for="description">Why do you want to meet?</label>
+            <textarea id="description" name="description" required></textarea>
+          </div>
+          <button type="submit" class="btn">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+<!-- Footer Section -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-social-media">
+      
+      <div class="social-media-links">
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/ic_textile/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/+923702490300" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <p>&copy; "IC Textile: Where Innovation Meets Style, Crafting Quality You Can Trust!"</p>
+    </div>
+  </div>
+</footer>
+  <script>
+    const modal = document.getElementById("bookingModal");
+    const btn = document.getElementById("scheduleMeetingBtn");
+    const span = document.getElementById("closeModal");
+    const meetingDate = document.getElementById("meetingDate");
+    const timeSlots = document.getElementById("timeSlots");
+    const timeOptions = document.getElementById("timeOptions");
+    const nextButton = document.getElementById("nextButton");
+    const meetingFormContainer = document.getElementById("meetingFormContainer");
+
+    const availableTimes = ["4:00 PM", "5:00 PM", "6:00 PM", "7:00 PM", "8:00 PM", "9:00 PM", "10:00 PM"];
+
+    // Open the modal
+    btn.onclick = () => {
+        modal.style.display = "block";
+    };
+
+    // Close the modal when clicking on the close button
+    span.onclick = () => {
+        closeModal();
+    };
+
+    // Close the modal when clicking outside of it
+    window.onclick = (event) => {
+        if (event.target === modal) closeModal();
+    };
+
+    // Function to reset and close the modal
+    const closeModal = () => {
+        modal.style.display = "none";
+        meetingDate.value = "";
+        timeSlots.classList.add("hidden");
+        timeOptions.innerHTML = "";
+        meetingFormContainer.classList.add("hidden");
+        nextButton.classList.add("hidden");
+    };
+
+    // Show time slots when a date is selected
+    meetingDate.addEventListener("change", () => {
+        timeSlots.classList.remove("hidden");
+        timeOptions.innerHTML = ""; // Clear previous time slots
+        availableTimes.forEach((time) => {
+            const timeSlot = document.createElement("div");
+            timeSlot.className = "time-slot";
+            timeSlot.textContent = time;
+            timeSlot.onclick = () => selectTimeSlot(timeSlot); // Handle time slot selection
+            timeOptions.appendChild(timeSlot);
+        });
+    });
+
+    // Highlight the selected time slot
+    const selectTimeSlot = (selectedSlot) => {
+        document.querySelectorAll(".time-slot").forEach(slot => slot.classList.remove("selected"));
+        selectedSlot.classList.add("selected");
+        nextButton.classList.remove("hidden");
+    };
+
+    // Proceed to the form when "Next" is clicked
+    nextButton.onclick = () => {
+        const selectedTimeSlot = document.querySelector(".time-slot.selected");
+        if (selectedTimeSlot) {
+            timeSlots.classList.add("hidden");
+            meetingFormContainer.classList.remove("hidden");
+        } else {
+            alert("Please select a time slot.");
+        }
+    };
+
+    // Form submission logic
+    const form = document.getElementById("bookingForm");
+    form.addEventListener("submit", (event) => {
+        event.preventDefault(); // Prevent default form submission
+
+        const selectedTime = document.querySelector(".time-slot.selected")?.textContent;
+        if (!selectedTime) {
+            alert("Please select a time slot.");
+            return;
+        }
+
+        // Collect form data
+        const formData = {
+            date: meetingDate.value,
+            time: selectedTime,
+            name: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            phone: document.getElementById("phone").value,
+            description: document.getElementById("description").value,
+        };
+
+        // Prepare WhatsApp message
+        const whatsappMessage = `New Meeting Request:
+- Date: ${formData.date}
+- Time: ${formData.time}
+- Name: ${formData.name}
+- Email: ${formData.email}
+- Phone: ${formData.phone}
+- Reason: ${formData.description}`;
+
+        const whatsappURL = `https://wa.me/+923369387999?text=${encodeURIComponent(whatsappMessage)}`;
+        window.open(whatsappURL, "_blank"); // Open WhatsApp in a new tab
+
+        alert("Your meeting request has been sent! We will contact you soon."); // Show success message
+        closeModal(); // Reset and close the modal
+    });
+</script>
+</body>
+</html>
+

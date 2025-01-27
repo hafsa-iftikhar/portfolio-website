@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/your-pro-license-key.js" crossorigin="anonymous"></script>
+  <title>About Us - Brand Curb</title>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Baloo 2', cursive;
+    }
+
+    /* Body and Typography */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    /* Header Styles */
+    .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(124, 133, 141, 0.85); /* Semi-transparent background */
+  border-bottom: 2px solid rgba(6, 82, 141, 0.85); /* Semi-transparent border */
+  box-shadow: 0 2px 5px rgba(6, 4, 4, 0.1);
+  z-index: 1000;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+}
+
+.header-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap; /* Prevent wrapping */
+  width: 100%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo-img {
+    width: 50px; /* Adjust the width as needed */
+    height: auto; /* Keeps the image proportional */
+  }
+
+.nav {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 15px; /* Space between links */
+  flex-wrap: nowrap; /* Ensure links stay horizontal */
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #1c1c1c;
+  padding: 10px 15px;
+  font-weight: normal;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: rgb(193, 200, 208);
+}
+
+.cta {
+  background: rgb(5, 40, 102);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.cta:hover {
+  background: rgb(36, 40, 47);
+} 
+    /* Footer Styles */
+    .site-footer {
+      background-color: #333;
+      color: #fff;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      flex-wrap: wrap;
+    }
+
+    .footer-logo {
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 15px;
+    }
+
+    .social-icons a {
+      color: #fff;
+      font-size: 24px;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: #007bff;
+    }
+    .product-catalog {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+    /* Footer Responsiveness */
+    @media (max-width: 768px) {
+      .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .social-icons {
+        margin-bottom: 20px;
+      }
+
+      .location {
+        text-align: center;
+      }
+
+      .map iframe {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo {
+        font-size: 24px;
+      }
+
+      .nav-links a {
+        font-size: 14px;
+      }
+
+      .cta {
+        font-size: 14px;
+        padding: 8px 15px;
+      }
+
+      .footer-logo {
+        font-size: 24px;
+      }
+    }
+
+    /*main section*/
+    .container {
+      display: flex;
+      width: 100%;
+    }
+
+    /* Sidebar Styles */
+    /* Sidebar Styles */
+    .container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 250px;
+  background: linear-gradient(135deg, #405b84, #5a92d3);
+  padding: 2rem 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: white;
+  position: fixed;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  padding-top: 6rem;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+    width: 250px; /* Set a fixed width for the sidebar */
+    position: absolute; /* Allows precise positioning */
+    top: 1rem; /* Add spacing from the top */
+    left: 1rem; /* Add spacing from the left */
+    padding: 1rem;
+    height: auto; /* Adjust height to fit content */
+    background-color: #f9f9f9; /* Optional: Add a background color */
+    border-radius: 8px; /* Optional: Rounded corners for better aesthetics */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adjust height to fit content */
+  }
+}
+
+/* Categories Title */
+.sidebar h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  letter-spacing: 1px;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Category List */
+.container {
+  display: flex;
+  gap: 1rem; /* Adjust spacing between sidebar and product grid */
+}
+.categories {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Category Item Styling */
+
+.categories li {
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: space-between; /* Aligns text to the left and icon to the right */
+  align-items: center;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+
+/* Icon Styling */
+.categories li i {
+  font-size: 1.5rem;
+  color: inherit;
+  transition: color 0.3s ease;
+  margin-left: 1rem; /* Optional: Adds space between text and icon */
+}
+
+
+/* Hover and Active Category Styling */
+.categories li:hover,
+.categories li.active {
+  background-color: rgba(255, 255, 255, 0.4);
+  color: #333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Icon Styling */
+.categories li i {
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+/* Category Label */
+.categories li span {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: inherit;
+  letter-spacing: 0.5px;
+  margin-right: auto;
+}
+
+/* Adding a subtle transition for hover effects */
+.categories li:hover i {
+  color: #4d6484;
+}
+
+/* Product Grid Styles */
+.products {
+  flex: 1;
+  margin-left: 250px; /* Adjusting space for sidebar */
+  padding: 6rem 2rem 2rem 2rem; /* top, right, bottom, left */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
+  gap: 1.5rem; /* Space between items */
+  box-sizing: border-box; /* Include padding/border in dimensions */
+}
+
+  .product-card {
+  border: 1px solid #050505;
+  border-radius: 8px;
+  text-align: center;
+  padding: 1rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  background: #fff
+    }
+
+    .product-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    .product-card img {
+      max-width: 100%;
+      border-radius: 5px;
+      margin-bottom: 0.1rem;
+      max-height: 200px;
+      object-fit: contain;
+    }
+
+    .product-info {
+  padding: 15px;
+}
+
+.product-name {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.product-category {
+  display: inline-block;
+  background: #e0e0e0;
+  color: #555;
+  font-size: 12px;
+  padding: 3px 8px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.product-details {
+  font-size: 14px;
+  color: #777;
+  margin: 10px 0;
+}
+
+.product-actions {
+  margin-top: 15px;
+}
+
+.btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+    /* Modal Styles */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      display: none;
+    }
+    .modal-content {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 10px;
+      text-align: center;
+      width: 300px;
+    }
+    .modal.show {
+  opacity: 1;
+  transform: scale(1);
+}
+    .modal-content img {
+      max-width: 100%;
+      margin-bottom: 1rem;
+    }
+    .close-btn {
+      background-color: red;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    /*shirts section*/
+.shirt-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .shirt-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .shirt-grid {
+    grid-template-columns: repeat(2, 1fr); /* Two columns for smaller screens */
+    gap: 10px;
+  }
+}
+.shirt-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  background-color: #fff;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.shirt-card:hover {
+  transform: scale(1.05);
+}
+
+.shirt-card img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.shirt-card h3 {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+/* Modal Styling */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  overflow: auto;
+  padding-top: 50px;
+}
+
+.modal-content {
+    position: relative;
+    padding: 20px;
+    background-color: #fff;
+    width: 80%; /* Adjust width as needed */
+    max-width: 600px;
+    margin: 50px auto;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #000000;
+}
+
+.close-btn:hover {
+    color: rgb(102, 8, 8); /* Optional: changes color on hover */
+}
+
+ /* Optional: Background Overlay */
+ .modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+/* Modal Images Styling */
+.modal-product-image {
+  max-width: 100%; /* Prevent image from exceeding the container's width */
+  max-height: 300px; /* Limit the height of the image */
+  width: auto; /* Maintain aspect ratio */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: contain; /* Ensures the image fits nicely */
+  display: block; /* Centers the image */
+  margin: 0 auto; /* Adds horizontal centering */
+}
+
+/* Modal Images Container */
+#modalImages {
+  display: flex; 
+  justify-content: center; 
+  align-items: center; /* Centers images vertically */
+  flex-wrap: wrap; /* Allows multiple images to wrap if needed */
+  max-height: 400px; /* Constrains the overall height of the container */
+  overflow-y: auto; /* Adds scroll if content exceeds modal height */
+  padding: 10px; /* Adds spacing around images */
+  box-sizing: border-box; /* Ensures padding doesn’t affect layout */
+}
+
+.products[data-active-category="polo"] {
+  flex: 1;
+  margin-left: 250px; /* Adjusting space for sidebar */
+  padding: 6rem 2rem 2rem 2rem; /* top, right, bottom, left */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
+  gap: 1.5rem; /* Space between items */
+  box-sizing: border-box;;
+
+}
+
+/* Container styling */
+#product-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Individual product card styling */
+.product {
+  border: 1px solid #0e0c0c;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 300px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Image styling */
+.product-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* Product name styling */
+.product-name {
+  font-size: 5em;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Product details styling */
+.product-description {
+  font-size: 3em;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  #product-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+}
+/* Product Card Styles andar se*/
+.product-card {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .product-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .product-card img {
+      max-width: 100%;
+      height: auto;
+      border-bottom: 1px solid #ddd;
+      margin-bottom: 10px;
+    }
+
+    .product-card h3 {
+      font-size: 1rem;
+      margin: 10px 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    .product-card p {
+      font-size: 14px;
+      color: #666;
+      text-align: justify;
+    }
+
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-box">
+      <div class="logo">
+        <img src="IC.png" alt="Brand Logo" class="logo-img">
+      </div>
+      <nav class="nav">
+        <ul class="nav-links">
+            <li><a href="header.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="catalogue.html">Catalogue</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Product Catalog Section -->
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h2>Categories</h2>
+      <ul class="categories">
+        <li class="active" data-category="all">
+          <i class="fas fa-th-large"></i> <span>All</span>
+        </li>
+        <li data-category="polo">
+          <i class="fas fa-tshirt"></i> <span>Polo</span>
+        </li>
+        <li data-category="t-shirts">
+          <i class="fa-sharp fa-solid fa-shirt"></i> <span>T-shirts</span>
+        </li>
+        <li data-category="sweaters">
+          <i class="fas fa-snowflake"></i> <span>Sweaters</span>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- Product Grid -->
+    <div class="products" id="productGrid">
+      
+      </div>
+      <!-- Product cards will be injected here -->
+       
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" id="productModal">
+    <div class="modal-content">
+      <span class="close-btn" id="closeModal">&times;</span>
+      <h2 id="modalTitle"></h2>
+      <div id="modalImages"></div>
+      <p id="modalPrice"></p>
+    </div>
+  </div>
+
+  <script>
+    // Expanded Product Data
+    const products = [
+        {
+            id: 1,
+            name: "Zinc Green Button-Down Half-Sleeves Polo",
+            details: "Button-Down Half-Sleeves Polo in premium pique for a fresh, classic look.",
+            category: "polo",
+            images: ["s1.jpg"]
+        },
+        {
+            id: 2,
+            name: "White Button-Down Half-Sleeves Polo",
+            details: "Classic comfort redefined in our white Button-Down Polo, crafted in premium pique.",
+            category: "polo",
+            images: ["s2.jpg"]
+        },
+        {
+            id: 3,
+            name: "Black Button-Down Half-Sleeves Polo",
+            details: "Elevate your style with our premium pique Button-Down Polo in timeless black.",
+            category: "polo",
+            images: ["s3.jpg"]
+        },
+        {
+            id: 4,
+            name: "White Drop Needle Zip Polo",
+            details: "Drop Needle Zip Polo in crisp white—style meets ultimate comfort.",
+            category: "polo",
+            images: ["t3.jpg"]
+        },
+        {
+            id: 5,
+            name: "Brown Drop Needle Zip Polo",
+            details: "Sophisticated brown Drop Needle Zip Polo, crafted for comfort and class.",
+            category: "polo",
+            images: ["t2.jpg"]
+        },
+        {
+            id: 6,
+            name: "Black Drop Needle Zip Polo",
+            details: "Timeless black Drop Needle Zip Polo for a sleek, stylish upgrade",
+            category: "polo",
+            images: ["t1.jpg"]
+        },
+        {
+            id: 6,
+            name: "Black Textured V-Neck Polo",
+            details: "Textured V-Neck Polo in sleek black—modern texture meets timeless style.",
+            price: 35,
+            category: "polo",
+            images: ["p1.jpg"]
+        },
+        {
+            id: 6,
+            name: "Pink Textured V-Neck Polo",
+            details: "Soft pink Textured V-Neck Polo for a chic and effortless look.",
+            price: 35,
+            category: "polo",
+            images: ["p2.jpg"]
+        },
+
+        //t-shirts
+        {
+            id: 6,
+            name: "Connection Realm Tee",
+            details: "Stay plugged into the vibe, Black T-Shirt with 'Connect' Graphic",
+            category: "t-shirts",
+            images: ["HT 1.jpg", "HT 1.1.jpg", "HT 1.2.jpg"]
+        },
+        {
+            id: 7,
+            name: "Abstract Flow Tee",
+            details: "Dive into artistic simplicity, Teal T-Shirt with Abstract Text Design",
+            category: "t-shirts",
+            images: ["HT 2.1.jpg", "HT 2.2.jpg", "HT 2.jpg"]
+        },
+        {
+            id: 8,
+            name: "High Road Explorer Tee",
+            details: "Adventure begins with every step, Gray T-Shirt with 'Take the High Road' Graphic",
+            category: "t-shirts",
+            images: ["HT 3.jpg", "HT 3.1.jpg", "HT 3.2.jpg"]
+        },
+
+        // Sweaters
+        {
+    id: 10,
+    name: "Classic Off-White Zip Polo",
+    details: "Upgrade your wardrobe with this elegant off-white zip polo—a versatile and timeless piece.",
+    category: "sweaters",
+    images: ["SW 1.jpg"]
+  },
+        { id: 11, 
+          name: "**Sophisticated Navy Button Polo**", 
+          details: "A navy button polo that’s all about understated sophistication. Perfect for a polished, effortless look.", 
+          category: "sweaters", 
+          images: ["SW 2.jpg"] },
+
+        { id: 11, 
+          name: "**Bold Maroon V-Neck Polo**", 
+          details: "Make a statement with this maroon v-neck polo—bold, warm, and ready to elevate your style.", 
+          category: "sweaters", 
+          images: ["SW 3.jpg"] },
+    ];
+
+    // Render Products
+    const renderProducts = (category = "all") => {
+  const productGrid = document.getElementById("productGrid");
+  productGrid.innerHTML = ""; // Clear existing content
+
+  const filteredProducts = products.filter(
+    (product) => category === "all" || product.category === category
+  );
+
+  filteredProducts.forEach((product) => {
+    const productCard = document.createElement("div");
+    productCard.className = "product-card";
+    productCard.innerHTML = `
+      <img src="${product.images[0]}" alt="${product.name}">
+      <h3>${product.name}</h3>
+    `;
+
+    // Add event listener for product click
+    productCard.addEventListener("click", () => showProductDetails(product));
+
+    productGrid.appendChild(productCard);
+  });
+};
+
+    document.querySelectorAll(".categories li").forEach((category) => {
+        category.addEventListener("click", () => {
+            const activeCategory = category.getAttribute("data-category");
+            const productGrid = document.getElementById("productGrid");
+
+            // Set data-active-category based on the selected category
+            productGrid.setAttribute("data-active-category", activeCategory);
+
+            // Filter logic for showing products (if applicable)
+            const allProducts = productGrid.querySelectorAll(".product-card");
+            allProducts.forEach((product) => {
+                const productCategory = product.getAttribute("data-category");
+                product.style.display =
+                    activeCategory === "all" || productCategory === activeCategory
+                        ? "block"
+                        : "none";
+            });
+        });
+    });
+
+    // Show Product Details in Modal
+    const showProductDetails = (product) => {
+        const productModal = document.getElementById("productModal");
+        const modalTitle = document.getElementById("modalTitle");
+        const modalImages = document.getElementById("modalImages");
+        const modalPrice = document.getElementById("modalPrice");
+
+        // Set product name and price
+        modalTitle.textContent = product.name;
+        modalPrice.textContent = `Details: ${product.details}`;
+
+
+        // Populate modal with images
+        modalImages.innerHTML = product.images
+            .map(
+                (img) => `<img src="${img}" alt="${product.name}" class="modal-product-image">`
+            )
+            .join("");
+
+        // Display the modal
+        productModal.style.display = "flex";
+    };
+
+    // Close Modal
+    const closeModal = document.getElementById("closeModal");
+    closeModal.addEventListener("click", () => {
+        const productModal = document.getElementById("productModal");
+        productModal.style.display = "none";
+    });
+
+    // Handle Category Click
+    document.querySelectorAll(".categories li").forEach((categoryItem) => {
+        categoryItem.addEventListener("click", () => {
+            document
+                .querySelectorAll(".categories li")
+                .forEach((item) => item.classList.remove("active"));
+            categoryItem.classList.add("active");
+
+            const category = categoryItem.getAttribute("data-category");
+            renderProducts(category);
+        });
+    });
+
+    // Initial Render of Products
+    renderProducts();
+
+    
+</script>
+
+</body>
+</html>

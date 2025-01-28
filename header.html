@@ -98,17 +98,18 @@
 .hero {
     display: flex;
     flex-wrap: wrap; /* Allow content to wrap for responsiveness */
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     padding-top: 100px;
     background-color: #e0e0e0;
     min-height: 100vh;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    gap: 20px; /* Add spacing between elements on wrap */
+    gap: 20px;
+    flex-direction: column;
 }
 
 .hero-text {
-    max-width: 50%; /* Limit text width for desktops */
+    width: 100%; /* Limit text width for desktops */
     text-align: justify;
     flex: 1;
     margin-right: 20px;
@@ -123,9 +124,10 @@
 
 .hero-text p {
     text-align: justify;
-  max-width: 90%;
-  margin: 0 auto;
-  line-height: 1.6;
+    max-width: 100%; /* Allow the paragraph to use full width */
+    margin: 0 auto;
+    line-height: 1.6;
+    padding: 0 15px;
 }
 
 .button-container {
@@ -626,7 +628,8 @@
 
   .hero-text p {
     font-size: 1rem;
-    text-align: center; /* Center paragraph */
+    text-align: justify;
+    padding: 0 10px; /* Center paragraph */
     line-height: 1.5; /* Improve spacing */
   }
 

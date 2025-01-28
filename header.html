@@ -604,23 +604,62 @@
     padding: 8px 12px;
   }
 }
-@media (max-width: 480px) {
-    .hero-text h1 {
-        font-size: 28px; /* Further adjust font size for mobile */
-    }
+@media (max-width: 768px) {
+  /* Fix First Section */
+  .hero {
+    padding: 30px 15px; /* Reduce padding */
+    text-align: center; /* Center text */
+  }
 
-    .hero-text p {
-        font-size: 0.8rem; /* Smaller text for very small screens */
-    }
+  .hero-text h1 {
+    font-size: 2rem; /* Reduce font size for smaller screens */
+    text-align: center; /* Center heading */
+  }
 
-    .hero-buttons a {
-        padding: 8px 12px; /* Adjust button size for mobile */
-        font-size: 0.9rem;
-    }
+  .hero-text p {
+    font-size: 1rem;
+    text-align: center; /* Center paragraph */
+  }
 
-    .hero-image img {
-        max-width: 90%; /* Increase image width for tiny screens */
-    }
+  .button-container {
+    text-align: center; /* Center button */
+  }
+
+  .hero-image img {
+    max-width: 100%; /* Ensure full responsiveness */
+  }
+
+  /* Fix Second Section */
+  .second-section {
+    height: auto; /* Remove fixed height */
+    padding: 30px 10px;
+  }
+
+  .content-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    max-width: 100%;
+    gap: 20px;
+  }
+
+  .second-section h2 {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .order-details {
+    text-align: center;
+  }
+
+  .order-steps {
+    text-align: center;
+  }
+
+  .order-steps li {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
 }
 
 /* 3 section */

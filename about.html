@@ -175,7 +175,7 @@
   justify-content: space-evenly;
   gap: 30px;
   font-size: 16px;
-  font-weight: normal;
+  flex-wrap: wrap;
   font-weight: 400;
 }
 .about-us .values h3{
@@ -208,19 +208,15 @@
   }
 }
 
-@media screen and (max-width: 480px) {
-  .about-us {
-    padding: 20px;
-    margin-top: 80px; /* Further decrease the margin-top for mobile */
+@media (max-width: 768px) {
+  .about-us .values div {
+    width: 100%; /* Make each value take up the full width */
+    margin-bottom: 15px; /* Add some space between items */
   }
 
-  .about-us h1 {
-    font-size: 1.8em; /* Further decrease the heading size */
-  }
-
-  .about-us p {
-    font-size: 1em; /* Further decrease the paragraph size */
-    width: 95%; /* Increase the paragraph width even more */
+  .about-us .values {
+    justify-content: center; /* Center the content */
+    gap: 15px; /* Reduce gap between items */
   }
 }
 
@@ -515,9 +511,6 @@ a:hover {
         <a href="https://www.instagram.com/ic_textile/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
           <a href="https://wa.me/+923702490300" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
       </div>
-    </div>
-    <div class="footer-copyright">
-      <p>&copy; "IC Textile: Where Innovation Meets Style, Crafting Quality You Can Trust!"</p>
     </div>
   </div>
 </footer>

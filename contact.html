@@ -8,6 +8,7 @@
   <title>Contact Us - Brand Curb</title>
   <style>
     /* General Reset */
+    /* General Reset */
     * {
       margin: 0;
       padding: 0;
@@ -17,16 +18,18 @@
 
     /* Body and Typography */
     body {
-      font-family: Arial, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
+      text-align: justify;
       background-color: #f4f4f4;
       color: #333;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
+      height: 100%;
+      margin: 0;
+      line-height: 1.6;
+      padding: 20px;
     }
 
-    /* Header Styles */
-    .header {
+   /* Header Styles */
+   .header {
   position: fixed;
   top: 0;
   left: 0;
@@ -37,6 +40,9 @@
   z-index: 1000;
   padding: 10px 20px;
   font-size: 1.1rem;
+  align-items: center;
+  justify-content: center; /* Center all content horizontally */
+  flex-wrap: nowrap; /* Prevent wrapping */
 }
 
 .header-box {

@@ -26,16 +26,17 @@
 }
 /* Header Styles */
 .header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(124, 133, 141, 0.85); /* Semi-transparent background */
-  border-bottom: 2px solid rgba(6, 82, 141, 0.85); /* Semi-transparent border */
-  box-shadow: 0 2px 5px rgba(6, 4, 4, 0.1);
-  z-index: 1000;
-  padding: 10px 20px;
-  font-size: 1.1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(124, 133, 141, 0.85);
+    border-bottom: 2px solid rgba(6, 82, 141, 0.85);
+    box-shadow: 0 2px 5px rgba(6, 4, 4, 0.1);
+    z-index: 1000;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    margin: 0; /* Reset any margin */
 }
 
 .header-box {
@@ -97,20 +98,18 @@
 /* First Section */
 .hero {
     display: flex;
-    flex-wrap: wrap; /* Allow content to wrap for responsiveness */
+    flex-wrap: wrap;
     align-items: flex-start;
     justify-content: center;
-    padding-top: 80px;
-    margin-top: 80px; 
+    padding-top: 80px; /* Keep this for spacing from header */
     background-color: #e0e0e0;
     min-height: 100vh;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     gap: 20px;
     flex-direction: column;
     position: relative;
-    z-index: 1;
+    z-index: 0;
 }
-
 .hero-text {
     width: 100%; /* Limit text width for desktops */
     text-align: justify;
@@ -615,7 +614,7 @@
   .hero {
     flex-direction: column; /* Stack text and image */
     text-align: center; /* Center everything */
-    padding: 30px 15px; /* Reduce padding */
+    padding-top: 100px;
   }
 
   .hero-text {

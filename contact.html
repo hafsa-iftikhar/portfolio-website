@@ -252,7 +252,58 @@ iframe {
     text-align: center;
   }
 }
+/* Responsive Styling for Smaller Screens */
+@media (max-width: 768px) {
+  .header-box {
+    flex-wrap: nowrap; /* Prevent wrapping */
+    overflow-x: auto; /* Allow horizontal scrolling if content overflows */
+  }
 
+  .nav-links {
+    flex-shrink: 0; /* Prevent shrinking */
+    gap: 10px; /* Adjust spacing for smaller screens */
+  }
+
+  .nav-links a {
+    padding: 8px 12px; /* Slightly reduce padding */
+  }
+
+  .cta {
+    padding: 8px 15px; /* Adjust button size */
+  }
+}
+
+ /* Responsive Design */
+ @media (max-width: 480px) {
+      .logo {
+        font-size: 24px;
+      }
+
+      .nav-links a {
+        font-size: 14px;
+      }
+
+      .cta {
+        font-size: 14px;
+        padding: 8px 15px;
+      }
+
+      .footer-logo {
+        font-size: 24px;
+      }
+    }
+
+    /* Keyframes for the animation */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 </style>
 </head>
 <body>
@@ -271,7 +322,7 @@ iframe {
         </ul>
       </nav>
     </div>
-  </header>
+</header>
 
   <!-- Contact Section -->
   <section class="contact-section">

@@ -29,7 +29,7 @@
     }
 
    /* Header Styles */
-   .header {
+  .header {
   position: fixed;
   top: 0;
   left: 0;
@@ -315,7 +315,8 @@ iframe {
   .contact-section {
     flex-direction: column; /* Stack items vertically */
     align-items: center;
-    padding: 20px;
+    padding: 30px;
+    gap: 30px;
   }
 
   .contact-details, .map-container {
@@ -327,9 +328,11 @@ iframe {
     justify-content: center; /* Center icons and text */
   }
 
-  iframe {
-    height: 250px; /* Adjusted height for mobile */
-  }
+  .map-container iframe {
+    width: 100%;
+    height: 270px;
+    border-radius: 8px;
+}
 }
 </style>
 </head>

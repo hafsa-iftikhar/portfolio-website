@@ -33,7 +33,7 @@
   border-bottom: 2px solid rgba(6, 82, 141, 0.85); /* Semi-transparent border */
   box-shadow: 0 2px 5px rgba(6, 4, 4, 0.1);
   z-index: 1000;
-  padding: 10px;
+  padding: 10px 20px;
   font-size: 1.1rem;
 }
 
@@ -93,59 +93,6 @@
 .cta:hover {
   background: rgb(36, 40, 47);
 } 
-
-  /* Responsive Styling for Smaller Screens */
-@media (max-width: 768px) {
-  .header-box {
-    flex-wrap: nowrap; /* Prevent wrapping */
-    overflow-x: auto; /* Allow horizontal scrolling if content overflows */
-  }
-
-  .nav-links {
-    flex-shrink: 0; /* Prevent shrinking */
-    gap: 10px; /* Adjust spacing for smaller screens */
-  }
-
-  .nav-links a {
-    padding: 8px 12px; /* Slightly reduce padding */
-  }
-
-  .cta {
-    padding: 8px 15px; /* Adjust button size */
-  }
-}
-
- /* Responsive Design */
- @media (max-width: 480px) {
-      .logo {
-        font-size: 24px;
-      }
-
-      .nav-links a {
-        font-size: 14px;
-      }
-
-      .cta {
-        font-size: 14px;
-        padding: 8px 15px;
-      }
-
-      .footer-logo {
-        font-size: 24px;
-      }
-    }
-
-    /* Keyframes for the animation */
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
     /* Footer Styles */
     .site-footer {
       background-color: #333;
@@ -236,6 +183,8 @@
       display: flex;
       width: 100%;
     }
+
+    /* Sidebar Styles */
     /* Sidebar Styles */
     .container {
   display: flex;
@@ -245,43 +194,26 @@
 
 /* Sidebar Styles */
 .sidebar {
-  position: relative; /* Change from absolute/fixed */
   width: 250px;
-  background: linear-gradient(135deg, #3b82f6, #1e3a8a);
-  padding: 15px;
+  background: linear-gradient(135deg, #405b84, #5a92d3);
+  padding: 2rem 1rem;
   border-radius: 10px;
-  margin-top: 70px; /* Push it below header */
-  z-index: 999; /* Ensure it's visible */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: white;
+  position: fixed;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  padding-top: 6rem;
 }
 
 @media (max-width: 768px) {
   .sidebar {
-    position: fixed;
-    top: 60px; /* Adjust to avoid overlapping */
-    left: 0;
-    width: 80%;
-    height: 100vh;
-    z-index: 1100; /* Higher than header */
-    box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.2);
-  }
-
-  /* Add Sidebar Toggle Button */
-  .sidebar-toggle {
-    display: block;
-    position: fixed;
-    left: 10px;
-    top: 15px;
-    background: #3b82f6;
-    color: white;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    z-index: 1200; /* Ensure button is above everything */
-  }
-
-  /* Hide Sidebar by Default */
-  .sidebar.hidden {
-    left: -100%;
+    width: 200px;
   }
 }
 
@@ -314,7 +246,7 @@
 /* Category List */
 .container {
   display: flex;
-  gap: 1rem; /* Adjust spacing between sidebar and product grid */
+  gap: 1rem; 
 }
 .categories {
   list-style: none;
@@ -580,6 +512,94 @@
 .close-btn:hover {
     color: rgb(102, 8, 8); /* Optional: changes color on hover */
 }
+/* Ensure modal is centered properly */
+/* Center the modal properly */
+/* Modal Box (Smaller Size) */
+#productModal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 550px;
+  height: 550px;
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  text-align: center;
+}
+
+/* Close Button */
+#closeModal {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  background: #ff3b3b;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#closeModal:hover {
+  background: #d60000;
+}
+
+/* Product Title */
+#modalTitle {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+/* Product Image Styling */
+.modal-product-image {
+  width: 100%;
+  max-width: 180px; /* Smaller image */
+  max-height: 220px;
+  object-fit: contain;
+  margin: 8px auto;
+  display: block
+}
+
+/* Product Details Styling */
+#modalPrice {
+  font-size: 16px;
+  color: #555;
+  margin-top: 10px;
+}
+
+/* Dark Overlay to Focus on Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+/* Responsive for Mobile */
+@media (max-width: 480px) {
+  #productModal {
+    width: 95%;
+    max-width: 280px;
+  }
+
+  .modal-product-image {
+    max-width: 150px;
+  }
+}
+
 
  /* Optional: Background Overlay */
  .modal-overlay {
@@ -736,33 +756,25 @@
     </div>
   </header>
 
-  <!-- Product Catalog Section -->
   <div class="container">
     <!-- Sidebar -->
     <aside class="sidebar">
       <h2>Categories</h2>
       <ul class="categories">
-        <li class="active" data-category="all">
-          <i class="fas fa-th-large"></i> <span>All</span>
+        <li class="active" data-category="polo">
+          <i class="fas fa-th-large"></i> <span>All (Polo)</span>
         </li>
-        <li data-category="polo">
-          <i class="fas fa-tshirt"></i> <span>Polo</span>
-        </li>
-        <li data-category="t-shirts">
-          <i class="fa-sharp fa-solid fa-shirt"></i> <span>T-shirts</span>
-        </li>
-        <li data-category="sweaters">
-          <i class="fas fa-snowflake"></i> <span>Sweaters</span>
+        <li data-category="raw-fabric">
+          <i class="fas fa-th-large"></i> <span>Raw Fabric</span>
         </li>
       </ul>
     </aside>
-
+</div>
     <!-- Product Grid -->
     <div class="products" id="productGrid">
       
       </div>
-      <!-- Product cards will be injected here -->
-       
+      <!-- Product cards will be injected here --> 
     </div>
   </div>
 
@@ -822,109 +834,60 @@
             images: ["t1.jpg"]
         },
         {
-            id: 6,
+            id: 7,
             name: "Black Textured V-Neck Polo",
             details: "Textured V-Neck Polo in sleek black—modern texture meets timeless style.",
-            price: 35,
             category: "polo",
             images: ["p1.jpg"]
         },
         {
-            id: 6,
+            id: 8,
             name: "Pink Textured V-Neck Polo",
             details: "Soft pink Textured V-Neck Polo for a chic and effortless look.",
-            price: 35,
             category: "polo",
             images: ["p2.jpg"]
         },
-
-        //t-shirts
-        {
-            id: 6,
-            name: "Connection Realm Tee",
-            details: "Stay plugged into the vibe, Black T-Shirt with 'Connect' Graphic",
-            category: "t-shirts",
-            images: ["HT 1.jpg", "HT 1.1.jpg", "HT 1.2.jpg"]
-        },
-        {
-            id: 7,
-            name: "Abstract Flow Tee",
-            details: "Dive into artistic simplicity, Teal T-Shirt with Abstract Text Design",
-            category: "t-shirts",
-            images: ["HT 2.1.jpg", "HT 2.2.jpg", "HT 2.jpg"]
-        },
-        {
-            id: 8,
-            name: "High Road Explorer Tee",
-            details: "Adventure begins with every step, Gray T-Shirt with 'Take the High Road' Graphic",
-            category: "t-shirts",
-            images: ["HT 3.jpg", "HT 3.1.jpg", "HT 3.2.jpg"]
-        },
-
-        // Sweaters
-        {
-    id: 10,
-    name: "Classic Off-White Zip Polo",
-    details: "Upgrade your wardrobe with this elegant off-white zip polo—a versatile and timeless piece.",
-    category: "sweaters",
-    images: ["SW 1.jpg"]
-  },
-        { id: 11, 
-          name: "**Sophisticated Navy Button Polo**", 
-          details: "A navy button polo that’s all about understated sophistication. Perfect for a polished, effortless look.", 
-          category: "sweaters", 
-          images: ["SW 2.jpg"] },
-
-        { id: 11, 
-          name: "**Bold Maroon V-Neck Polo**", 
-          details: "Make a statement with this maroon v-neck polo—bold, warm, and ready to elevate your style.", 
-          category: "sweaters", 
-          images: ["SW 3.jpg"] },
-    ];
-
-    // Render Products
+        { id: 4, name: "3 Fleece Fabric", details: "Available in any color. MOQ: 150 kg", category: "raw-fabric", images: ["f1.jpg"] },
+    { id: 5, name: "2 Fleece Fabric", details: "Available in any color. MOQ: 150 kg", category: "raw-fabric", images: ["f2.jpeg"] },
+    { id: 6, name: "Sherpa Fleece", details: "Available in any color. MOQ: 150 kg", category: "raw-fabric", images: ["f3.webp"] },
+    { id: 7, name: "French Loop Terry", details: "Available in any color. MOQ: 150 kg", category: "raw-fabric", images: ["f4.avif"] },
+    { id: 8, name: "2 Terry", details: "Available in any color. MOQ: 150 kg", category: "raw-fabric", images: ["f5.jpg"] },
+    { id: 9, name: "Plated Terry", details: "Available in any color. MOQ: 150 kg", category: "raw-fabric", images: ["f6.avif"] },
+    { id: 10, name: "Single Rule Pique", details: "Available in any color. MOQ: 150 kg", category: "raw-fabric", images: ["f7.webp"] },
+    { id: 11, name: "Double Rule Pique", details: "Available in any color. MOQ: 150 kg", category: "raw-fabric", images: ["f8.avif"] },
+    { id: 12, name: "Lycra Pique", details: "Available in any color. MOQ: 150 kg", category: "raw-fabric", images: ["f9.jpg"] },
+    { id: 13, name: "Lacoste Pique", details: "Available in any color. MOQ: 150 kg", category: "raw-fabric", images: ["f10.jpg"] },
+    { id: 14, name: "Single Jersey", details: "Available in any color. MOQ: 150 kg", category: "raw-fabric", images: ["f11.jpg"] },
+    { id: 15, name: "Double Jersey", details: "Available in any color. MOQ: 150 kg", category: "raw-fabric", images: ["f12.jpg"] },
+    { id: 16, name: "Lycra Jersey", details: "Available in any color. MOQ: 150 kg", category: "raw-fabric", images: ["f13.webp"] },
+    { id: 17, name: "Interlock Jersey", details: "Available in any color. MOQ: 150 kg", category: "raw-fabric", images: ["f14.jpg"] },
+    { id: 18, name: "Tie & Dye Fabric", details: "Available in any color. MOQ: 150 kg", category: "raw-fabric", images: ["f15.jpg"] },
+    { id: 19, name: "Tie & Dye Fabric 1x1 Rib", details: "Available in any color. MOQ: 150 kg", category: "raw-fabric", images: ["f16.jpg"] },
+    { id: 20, name: "2x1 Rib", details: "Available in any color. MOQ: 150 kg", category: "raw-fabric", images: ["f17.jpg"] }
+];
+    // Render Products Function
     const renderProducts = (category = "all") => {
-  const productGrid = document.getElementById("productGrid");
-  productGrid.innerHTML = ""; // Clear existing content
+        const productGrid = document.getElementById("productGrid");
+        productGrid.innerHTML = ""; // Clear existing content
 
-  const filteredProducts = products.filter(
-    (product) => category === "all" || product.category === category
-  );
+        const filteredProducts = products.filter(
+            product => category === "all" || product.category === category
+        );
 
-  filteredProducts.forEach((product) => {
-    const productCard = document.createElement("div");
-    productCard.className = "product-card";
-    productCard.innerHTML = `
-      <img src="${product.images[0]}" alt="${product.name}">
-      <h3>${product.name}</h3>
-    `;
+        filteredProducts.forEach(product => {
+            const productCard = document.createElement("div");
+            productCard.className = "product-card";
+            productCard.innerHTML = `
+                <img src="${product.images[0]}" alt="${product.name}">
+                <h3>${product.name}</h3>
+            `;
 
-    // Add event listener for product click
-    productCard.addEventListener("click", () => showProductDetails(product));
+            // Add event listener for product click
+            productCard.addEventListener("click", () => showProductDetails(product));
 
-    productGrid.appendChild(productCard);
-  });
-};
-
-    document.querySelectorAll(".categories li").forEach((category) => {
-        category.addEventListener("click", () => {
-            const activeCategory = category.getAttribute("data-category");
-            const productGrid = document.getElementById("productGrid");
-
-            // Set data-active-category based on the selected category
-            productGrid.setAttribute("data-active-category", activeCategory);
-
-            // Filter logic for showing products (if applicable)
-            const allProducts = productGrid.querySelectorAll(".product-card");
-            allProducts.forEach((product) => {
-                const productCategory = product.getAttribute("data-category");
-                product.style.display =
-                    activeCategory === "all" || productCategory === activeCategory
-                        ? "block"
-                        : "none";
-            });
+            productGrid.appendChild(productCard);
         });
-    });
+    };
 
     // Show Product Details in Modal
     const showProductDetails = (product) => {
@@ -932,18 +895,26 @@
         const modalTitle = document.getElementById("modalTitle");
         const modalImages = document.getElementById("modalImages");
         const modalPrice = document.getElementById("modalPrice");
+        const sidebar = document.querySelector(".sidebar");
 
-        // Set product name and price
+        // Set product name and details
         modalTitle.textContent = product.name;
         modalPrice.textContent = `Details: ${product.details}`;
 
+        // Hide sidebar on mobile when modal opens
+        if (window.innerWidth < 768) {
+            sidebar.classList.remove("show");
+        }
 
         // Populate modal with images
         modalImages.innerHTML = product.images
-            .map(
-                (img) => `<img src="${img}" alt="${product.name}" class="modal-product-image">`
-            )
+            .map(img => `<img src="${img}" alt="${product.name}" class="modal-product-image">`)
             .join("");
+
+        // Create and add overlay
+        const modalOverlay = document.createElement("div");
+        modalOverlay.classList.add("modal-overlay");
+        document.body.appendChild(modalOverlay);
 
         // Display the modal
         productModal.style.display = "flex";
@@ -953,15 +924,20 @@
     const closeModal = document.getElementById("closeModal");
     closeModal.addEventListener("click", () => {
         const productModal = document.getElementById("productModal");
+        const modalOverlay = document.querySelector(".modal-overlay");
+
         productModal.style.display = "none";
+
+        // Remove overlay when modal closes
+        if (modalOverlay) {
+            modalOverlay.remove();
+        }
     });
 
-    // Handle Category Click
-    document.querySelectorAll(".categories li").forEach((categoryItem) => {
+    // Handle Category Clicks
+    document.querySelectorAll(".categories li").forEach(categoryItem => {
         categoryItem.addEventListener("click", () => {
-            document
-                .querySelectorAll(".categories li")
-                .forEach((item) => item.classList.remove("active"));
+            document.querySelectorAll(".categories li").forEach(item => item.classList.remove("active"));
             categoryItem.classList.add("active");
 
             const category = categoryItem.getAttribute("data-category");
@@ -971,9 +947,6 @@
 
     // Initial Render of Products
     renderProducts();
-
-    
 </script>
-
 </body>
 </html>

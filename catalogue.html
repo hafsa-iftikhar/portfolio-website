@@ -762,7 +762,7 @@
       <h2>Categories</h2>
       <ul class="categories">
         <li class="active" data-category="polo">
-          <i class="fas fa-th-large"></i> <span>All (Polo)</span>
+          <i class="fas fa-th-large"></i> <span>Polo</span>
         </li>
         <li data-category="raw-fabric">
           <i class="fas fa-th-large"></i> <span>Raw Fabric</span>
@@ -847,6 +847,48 @@
             category: "polo",
             images: ["p2.jpg"]
         },
+        {
+            id: 9,
+            name: "White Drop Needle Zip Polo",
+            details: "Timeless elegance meets comfort in this White Drop Needle Zip Polo, perfect for any occasion.",
+            category: "polo",
+            images: ["SW 1.jpg"]
+        },
+        {
+            id: 10,
+            name: "Red Drop Needle Zip Polo",
+            details: "Make a bold statement with the Red Drop Needle Zip Polo, blending style and sophistication.",
+            category: "polo",
+            images: ["SW 3.jpg"]
+        },
+        {
+            id: 11,
+            name: "Navy Blue Drop Needle Zip Polo",
+            details: "Elevate your wardrobe with the Navy Blue Drop Needle Zip Polo, a perfect balance of class and comfort.",
+            category: "polo",
+            images: ["SW 2.jpg"]
+        },
+        {
+            id: 12,
+            name: "Black 'Reconnect' Oversized T-Shirt",
+            details: "Make a bold statement with this oversized black tee featuring a futuristic Reconnect graphic.",
+            category: "polo",
+            images: ["HT 1.JPG", "HT 1.1.jpg", "HT 1.2.JPG"]
+        },
+        {
+            id: 13,
+            name: " Deep Teal Oversized T-Shirt",
+            details: "A stylish oversized t-shirt in deep teal with textured front embroidery, perfect for a casual and trendy look.",
+            category: "polo",
+            images: ["HT 2.JPG", "HT 2.1.jpg", "HT 2.2.JPG"]
+        },
+        {
+            id: 14,
+            name: "Light Gray 'Take The High Road' T-Shirt ",
+            details: "Stay inspired in this light gray tee with a stylish graphic promoting adventure and positivity.",
+            category: "polo",
+            images: ["HT 3.JPG", "HT 3.1.jpg", "HT 3.2.JPG"]
+        },
         { id: 4, name: "3 Fleece Fabric", details: "Available in any color. MOQ: 150 kg", category: "raw-fabric", images: ["f1.jpg"] },
     { id: 5, name: "2 Fleece Fabric", details: "Available in any color. MOQ: 150 kg", category: "raw-fabric", images: ["f2.jpeg"] },
     { id: 6, name: "Sherpa Fleece", details: "Available in any color. MOQ: 150 kg", category: "raw-fabric", images: ["f3.webp"] },
@@ -865,15 +907,23 @@
     { id: 19, name: "Tie & Dye Fabric 1x1 Rib", details: "Available in any color. MOQ: 150 kg", category: "raw-fabric", images: ["f16.jpg"] },
     { id: 20, name: "2x1 Rib", details: "Available in any color. MOQ: 150 kg", category: "raw-fabric", images: ["f17.jpg"] }
 ];
-    // Render Products Function
-    const renderProducts = (category = "all") => {
-        const productGrid = document.getElementById("productGrid");
-        productGrid.innerHTML = ""; // Clear existing content
+const renderProducts = (category) => {
+    const productGrid = document.getElementById("productGrid");
+    productGrid.innerHTML = ""; // Clear previous items
 
-        const filteredProducts = products.filter(
-            product => category === "all" || product.category === category
-        );
+    let filteredProducts = [];
 
+    if (category === "polo") {
+        filteredProducts = products.filter(product => product.category === "polo");
+    } else if (category === "raw-fabric") {
+        filteredProducts = products.filter(product => product.category === "raw-fabric");
+    }
+
+    console.log("Filtered Products:", filteredProducts); // Debugging: Check if Polo products are filtering
+
+    if (filteredProducts.length === 0) {
+        productGrid.innerHTML = "<p>No products found.</p>";  // If no Polo is found
+    } else {
         filteredProducts.forEach(product => {
             const productCard = document.createElement("div");
             productCard.className = "product-card";
@@ -882,12 +932,11 @@
                 <h3>${product.name}</h3>
             `;
 
-            // Add event listener for product click
             productCard.addEventListener("click", () => showProductDetails(product));
-
             productGrid.appendChild(productCard);
         });
-    };
+    }
+};
 
     // Show Product Details in Modal
     const showProductDetails = (product) => {
@@ -948,5 +997,7 @@
     // Initial Render of Products
     renderProducts();
 </script>
+
+
 </body>
 </html>

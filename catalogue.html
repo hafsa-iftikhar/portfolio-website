@@ -211,6 +211,7 @@
 
 @media (max-width: 768px) {
     .sidebar {
+        background-color: #465a6e;
         width: 100%;
         height: auto;
         position: relative;
@@ -220,15 +221,16 @@
     }
 
     .categories {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        width: 100%;
+    display: flex;
+    flex-direction: column; /* Ensures vertical stacking */
+    justify-content: center;
+    width: 100%;
     }
 
     .categories li {
         flex: 1;
         text-align: center;
+      color: white;
     }
 
     .products {
@@ -239,17 +241,17 @@
 
 @media (max-width: 480px) {
   .sidebar {
-    width: 250px;
-        position: absolute;
-        top: 1rem;
-        left: 1rem;
-        padding: 1rem;
-        height: auto;
-        background-color: #f9f9f9;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 250px; /* Allows it to adjust instead of being fixed */
+    position: relative; /* Prevents overlapping */
+    left: 0;
+    padding: 1rem;
+    height: auto;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
 }
-}
+
 /* Category List */
 .container {
   display: flex;

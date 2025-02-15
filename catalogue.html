@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Brand Curb</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/your-pro-license-key.js" crossorigin="anonymous"></script>
-  <title>About Us - Brand Curb</title>
   <style>
-    /* General Reset */
+        /* General Reset */
     * {
       margin: 0;
       padding: 0;
@@ -18,43 +17,68 @@
 
     /* Body and Typography */
     body {
-      font-family: Arial, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
+      text-align: justify;
       background-color: #f4f4f4;
       color: #333;
+      height: 100%;
+      margin: 0;
+      line-height: 1.6;
+      padding: 80px;
     }
 
-    /* Header Styles */
-    .header {
-  position: relative;
+/* Header Styles */
+.header {
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(124, 133, 141, 0.85); /* Semi-transparent background */
-  border-bottom: 2px solid rgba(6, 82, 141, 0.85); /* Semi-transparent border */
-  box-shadow: 0 2px 5px rgba(6, 4, 4, 0.1);
-  z-index: 10;
-  padding: 10px 20px;
-  font-size: 1.1rem;
+  background: rgba(20, 20, 20, 0.9); /* Dark Blue with slight transparency */
+  backdrop-filter: blur(10px); /* Soft glass effect */
+  border-bottom: 2px solid rgba(189, 195, 199, 0.2); /* Light Gray Border */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  padding: 10px 25px;
+  transition: all 0.3s ease-in-out;
+  animation: fadeInDown 0.8s ease-in-out;
+}
+
+/* Header Animation */
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .header-box {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: nowrap; /* Prevent wrapping */
+  flex-wrap: nowrap;
   width: 100%;
 }
 
+/* Logo Styling */
 .logo {
-    display: flex;
-    align-items: center;
-  }
+  font-size: 24px;
+  font-weight: 700;
+  color: #ecf0f1; /* Light color from your palette */
+}
 
-  .logo-img {
-    width: 50px; /* Adjust the width as needed */
-    height: auto; /* Keeps the image proportional */
-  }
+.logo-text {
+  color: #ecf0f1; /* Light grey */
+}
 
+.logo-highlight {
+  color: #e01010; /* Accent color if you want a different tone */
+ height: auto;
+}
+/* Navigation */
 .nav {
   display: flex;
   align-items: center;
@@ -64,681 +88,66 @@
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 15px; /* Space between links */
-  flex-wrap: nowrap; /* Ensure links stay horizontal */
+  gap: 20px;
+  flex-wrap: nowrap;
 }
 
 .nav-links a {
   text-decoration: none;
-  color: #1c1c1c;
+  color: #f5f5f5; /* Light Gray */
   padding: 10px 15px;
-  font-weight: normal;
-  transition: color 0.3s ease;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+  letter-spacing: 0.5px;
 }
 
+/* Hover Effect with Secondary Blue */
 .nav-links a:hover {
-  color: rgb(193, 200, 208);
+  color: #686666; /* Secondary Blue */
 }
 
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: #5f6060; /* Muted Gray underline */
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Call to Action Button */
 .cta {
-  background: rgb(5, 40, 102);
-  color: white;
+  background: linear-gradient(135deg, #b90505, #b90505); /* Dark Blue to Light Gray */
+  color: rgb(244, 244, 244);
   border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
+  padding: 12px 24px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  text-transform: uppercase;
+  box-shadow: 0 4px 10px rgba(127, 140, 141, 0.3);
 }
 
 .cta:hover {
-  background: rgb(36, 40, 47);
-} 
-    /* Footer Styles */
-    .site-footer {
-      background-color: #333;
-      color: #fff;
-      padding: 40px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .footer-content {
-      display: flex;
-      justify-content: space-between;
-      width: 100%;
-      flex-wrap: wrap;
-    }
-
-    .footer-logo {
-      font-size: 28px;
-      font-weight: bold;
-    }
-
-    .social-icons {
-      display: flex;
-      gap: 15px;
-    }
-
-    .social-icons a {
-      color: #fff;
-      font-size: 24px;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .social-icons a:hover {
-      color: #007bff;
-    }
-    .product-catalog {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-    padding: 20px;
-}
-    /* Footer Responsiveness */
-    @media (max-width: 768px) {
-      .footer-content {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-
-      .social-icons {
-        margin-bottom: 20px;
-      }
-
-      .location {
-        text-align: center;
-      }
-
-      .map iframe {
-        width: 100%;
-        max-width: 300px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .logo {
-        font-size: 24px;
-      }
-
-      .nav-links a {
-        font-size: 14px;
-      }
-
-      .cta {
-        font-size: 14px;
-        padding: 8px 15px;
-      }
-
-      .footer-logo {
-        font-size: 24px;
-      }
-    }
-
-    /*main section*/
-    .container {
-      display: flex;
-      width: 100%;
-    }
-
-    /* Sidebar Styles */
-    /* Sidebar Styles */
-    .container {
-  display: flex;
-  width: 100%;
-  height: 100%;
-}
-
-/* Sidebar Styles */
-.sidebar {
-  width: 250px;
-  background: linear-gradient(135deg, #405b84, #5a92d3);
-  padding: 2rem 1rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  color: white;
-  position: relative;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  padding-top: 6rem;
-}
-
-@media (max-width: 768px) {
-  .sidebar {
-    width: 200px;
-  }
-}
-
-@media (max-width: 480px) {
-  .sidebar {
-    width: 250px; /* Set a fixed width for the sidebar */
-    position: absolute; /* Allows precise positioning */
-    top: 1rem; /* Add spacing from the top */
-    left: 1rem; /* Add spacing from the left */
-    padding: 1rem;
-    height: auto; /* Adjust height to fit content */
-    background-color: #f9f9f9; /* Optional: Add a background color */
-    border-radius: 8px; /* Optional: Rounded corners for better aesthetics */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adjust height to fit content */
-  }
-}
-
-/* Categories Title */
-.sidebar h2 {
-  font-size: 1.8rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  text-align: center;
-  letter-spacing: 1px;
-  color: #fff;
-  text-transform: uppercase;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
-/* Category List */
-.container {
-  display: flex;
-  gap: 1rem; 
-}
-.categories {
-  list-style: none;
-  padding: 0;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-/* Category Item Styling */
-
-.categories li {
-  padding: 1rem;
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  justify-content: space-between; /* Aligns text to the left and icon to the right */
-  align-items: center;
-  color: white;
-  font-size: 1.2rem;
-  font-weight: 500;
-  text-transform: capitalize;
-  margin-bottom: 0.5rem;
-  text-align: left;
-}
-
-/* Icon Styling */
-.categories li i {
-  font-size: 1.5rem;
-  color: inherit;
-  transition: color 0.3s ease;
-  margin-left: 1rem; /* Optional: Adds space between text and icon */
+  background: linear-gradient(135deg, #e13c3c, #d21f1f);
+  box-shadow: 0 6px 15px rgba(241, 46, 46, 0.4);
 }
 
 
-/* Hover and Active Category Styling */
-.categories li:hover,
-.categories li.active {
-  background-color: rgba(255, 255, 255, 0.4);
-  color: #333;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-/* Icon Styling */
-.categories li i {
-  font-size: 1.5rem;
-  margin-right: 1rem;
-  color: inherit;
-  transition: color 0.3s ease;
-}
-
-/* Category Label */
-.categories li span {
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: inherit;
-  letter-spacing: 0.5px;
-  margin-right: auto;
-}
-
-/* Adding a subtle transition for hover effects */
-.categories li:hover i {
-  color: #4d6484;
-}
-
-/* Product Grid Styles */
-.products {
-  flex: 1;
-  margin-left: 250px; /* Adjusting space for sidebar */
-  padding: 6rem 2rem 2rem 2rem; /* top, right, bottom, left */
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
-  gap: 1.5rem; /* Space between items */
-  box-sizing: border-box; /* Include padding/border in dimensions */
-}
-
-  .product-card {
-  border: 1px solid #050505;
-  border-radius: 8px;
-  text-align: center;
-  padding: 1rem;
-  transition: transform 0.3s, box-shadow 0.3s;
-  cursor: pointer;
-  background: #fff
-    }
-
-    .product-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-    .product-card img {
-      max-width: 100%;
-      border-radius: 5px;
-      margin-bottom: 0.1rem;
-      max-height: 200px;
-      object-fit: contain;
-    }
-
-    .product-info {
-  padding: 15px;
-}
-
-.product-name {
-  font-size: 18px;
-  font-weight: bold;
-  margin: 10px 0;
-}
-
-.product-category {
-  display: inline-block;
-  background: #e0e0e0;
-  color: #555;
-  font-size: 12px;
-  padding: 3px 8px;
-  border-radius: 5px;
-  margin-bottom: 10px;
-}
-
-.product-details {
-  font-size: 14px;
-  color: #777;
-  margin: 10px 0;
-}
-
-.product-actions {
-  margin-top: 15px;
-}
-
-.btn {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  padding: 10px 15px;
-  margin: 5px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.btn:hover {
-  background-color: #0056b3;
-}
-
-    /* Modal Styles */
-    .modal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 1000;
-      display: none;
-    }
-    .modal-content {
-      background-color: white;
-      padding: 2rem;
-      border-radius: 10px;
-      text-align: center;
-      width: 300px;
-    }
-    .modal.show {
-  opacity: 1;
-  transform: scale(1);
-}
-    .modal-content img {
-      max-width: 100%;
-      margin-bottom: 1rem;
-    }
-    .close-btn {
-      background-color: red;
-      color: white;
-      border: none;
-      padding: 0.5rem 1rem;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-
-    /*shirts section*/
-.shirt-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-@media (max-width: 768px) {
-  .shirt-grid {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 15px;
-  }
-}
-
-@media (max-width: 480px) {
-  .shirt-grid {
-    grid-template-columns: repeat(2, 1fr); /* Two columns for smaller screens */
-    gap: 10px;
-  }
-}
-.shirt-card {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 10px;
-  text-align: center;
-  background-color: #fff;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.shirt-card:hover {
-  transform: scale(1.05);
-}
-
-.shirt-card img {
-  max-width: 100%;
-  border-radius: 8px;
-}
-
-.shirt-card h3 {
-  margin-top: 10px;
-  font-size: 1.2rem;
-  color: #333;
-}
-
-/* Modal Styling */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  overflow: auto;
-  padding-top: 50px;
-}
-
-.modal-content {
-    position: relative;
-    padding: 20px;
-    background-color: #fff;
-    width: 80%; /* Adjust width as needed */
-    max-width: 600px;
-    margin: 50px auto;
-}
-
-.close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 30px;
-    cursor: pointer;
-    color: #000000;
-}
-
-.close-btn:hover {
-    color: rgb(102, 8, 8); /* Optional: changes color on hover */
-}
-/* Ensure modal is centered properly */
-
-#productModal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 550px;
-  height: 550px;
-  background: white;
-  padding: 15px;
-  border-radius: 12px;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
-  text-align: center;
-}
-
-/* Close Button */
-#closeModal {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 24px;
-  height: 24px;
-  background: #ff3b3b;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  font-size: 14px;
-  font-weight: bold;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-#closeModal:hover {
-  background: #d60000;
-}
-
-/* Product Title */
-#modalTitle {
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 8px;
-}
-
-/* Product Image Styling */
-.modal-product-image {
-  width: 100%;
-  max-width: 180px; /* Smaller image */
-  max-height: 220px;
-  object-fit: contain;
-  margin: 8px auto;
-  display: block
-}
-
-/* Product Details Styling */
-#modalPrice {
-  font-size: 16px;
-  color: #555;
-  margin-top: 10px;
-}
-
-/* Dark Overlay to Focus on Modal */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 999;
-}
-
-/* Responsive for Mobile */
-@media (max-width: 480px) {
-  #productModal {
-    width: 95%;
-    max-width: 280px;
-  }
-
-  .modal-product-image {
-    max-width: 150px;
-  }
-}
-
-
- /* Optional: Background Overlay */
- .modal-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 999;
-  }
-/* Modal Images Styling */
-.modal-product-image {
-  max-width: 100%; /* Prevent image from exceeding the container's width */
-  max-height: 300px; /* Limit the height of the image */
-  width: auto; /* Maintain aspect ratio */
-  height: auto; /* Maintain aspect ratio */
-  object-fit: contain; /* Ensures the image fits nicely */
-  display: block; /* Centers the image */
-  margin: 0 auto; /* Adds horizontal centering */
-}
-
-/* Modal Images Container */
-#modalImages {
-  display: flex; 
-  justify-content: center; 
-  align-items: center; /* Centers images vertically */
-  flex-wrap: wrap; /* Allows multiple images to wrap if needed */
-  max-height: 400px; /* Constrains the overall height of the container */
-  overflow-y: auto; /* Adds scroll if content exceeds modal height */
-  padding: 10px; /* Adds spacing around images */
-  box-sizing: border-box; /* Ensures padding doesn’t affect layout */
-}
-
-.products[data-active-category="polo"] {
-  flex: 1;
-  margin-left: 250px; /* Adjusting space for sidebar */
-  padding: 6rem 2rem 2rem 2rem; /* top, right, bottom, left */
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
-  gap: 1.5rem; /* Space between items */
-  box-sizing: border-box;;
-
-}
-
-/* Container styling */
-#product-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding: 20px;
-}
-
-/* Individual product card styling */
-.product {
-  border: 1px solid #0e0c0c;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  width: 300px;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.product:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
-
-/* Image styling */
-.product-image img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin-bottom: 15px;
-}
-
-/* Product name styling */
-.product-name {
-  font-size: 5em;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 10px;
-}
-
-/* Product details styling */
-.product-description {
-  font-size: 3em;
-  color: #666;
-  line-height: 1.5;
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-  #product-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-}
-/* Product Card Styles andar se*/
-.product-card {
-      background: white;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease;
-      text-align: center;
-      padding: 10px;
-    }
-
-    .product-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    }
-
-    .product-card img {
-      max-width: 100%;
-      height: auto;
-      border-bottom: 1px solid #ddd;
-      margin-bottom: 10px;
-    }
-
-    .product-card h3 {
-      font-size: 1rem;
-      margin: 10px 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    }
-
-    .product-card p {
-      font-size: 14px;
-      color: #666;
-      text-align: justify;
-    }
 /* Responsive Styling for Smaller Screens */
 @media (max-width: 768px) {
   .header-box {
-    flex-wrap: nowrap; /* Prevent wrapping */
-    overflow-x: auto; /* Allow horizontal scrolling if content overflows */
+    flex-wrap: wrap; /* Prevent wrapping */
+    overflow-x: hidden; /* Allow horizontal scrolling if content overflows */
   }
 
   .nav-links {
@@ -747,7 +156,9 @@
   }
 
   .nav-links a {
-    padding: 8px 12px; /* Slightly reduce padding */
+    display: block; /* Make links take full width */
+    text-align: center; /* Center text */
+    padding: 10px;
   }
 
   .cta {
@@ -786,6 +197,184 @@
     transform: translateY(0);
   }
 }
+/*section 2*/
+.category-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px 0;
+    flex-wrap: wrap; /* Ensures responsiveness */
+}
+
+.category-buttons button {
+    background-color: #222;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.category-buttons button:hover {
+    background-color: #444;
+}
+
+/* Product grid container */
+/* Ensure product grid displays in two columns */
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  padding: 20px;
+}
+
+/* Ensure product cards adjust properly */
+.product-card {
+    width: 100%; /* Each product takes full column width */
+    max-width: 400px; /* Prevent excessive stretching */
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+    flex: 1 1 45%;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+}
+
+/* Product images */
+.product-card img {
+    width: 80%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    cursor: pointer;
+}
+/* Image switch button */
+.next-image {
+      position: absolute;
+      top: 50%;
+      right: 5px;
+      background: rgba(0, 0, 0, 0.5);
+      color: rgb(243, 243, 243);
+      border: none;
+      cursor: pointer;
+      padding: 5px;
+      transform: translateY(-50%);
+}
+
+.next-image:hover {
+    background: #444;
+}
+
+/* Product description */
+.product-card h3 {
+    margin: 10px 0 5px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.product-card p {
+    font-size: 14px;
+    color: #666;
+}
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 80%;
+}
+
+.modal-content img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.7);
+    border: none;
+    padding: 10px 15px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.prev { left: 20px; }
+.next { right: 20px; }
+
+.prev:hover, .next:hover {
+    background: white;
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+    .product-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .product-card {
+        width: 90%;
+        max-width: 350px;
+    }
+    
+    .nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .nav button {
+        width: 80%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-card {
+        max-width: 90%;
+    }
+    
+    .next-image {
+        right: 5px;
+        padding: 3px 8px;
+        font-size: 14px;
+    }
+}
   </style>
 </head>
 <body>
@@ -793,7 +382,7 @@
   <header class="header">
     <div class="header-box">
       <div class="logo">
-        <img src="IC.png" alt="Brand Logo" class="logo-img">
+        <span class="logo-text">Iftikhar</span><span class="logo-highlight"> Corporation</span>
       </div>
       <nav class="nav">
         <ul class="nav-links">
@@ -804,250 +393,257 @@
         </ul>
       </nav>
     </div>
-  </header>
+</header>
 
-  <div class="container">
-    <!-- Sidebar -->
-    <aside class="sidebar">
-      <h2>Categories</h2>
-      <ul class="categories">
-        <li class="active" data-category="polo">
-          <i class="fas fa-th-large"></i> <span>Polo</span>
-        </li>
-        <li data-category="raw-fabric">
-          <i class="fas fa-th-large"></i> <span>Raw Fabric</span>
-        </li>
-      </ul>
-    </aside>
-</div>
-    <!-- Product Grid -->
-    <div class="products" id="productGrid">
-      
-      </div>
-      <!-- Product cards will be injected here --> 
-    </div>
+  <div class="category-buttons">
+    <button onclick="showCategory('polo')">Polo</button>
+    <button onclick="showCategory('rawFabric')">Raw Fabric</button>
   </div>
 
-  <!-- Modal -->
-  <div class="modal" id="productModal">
+  <div id="product-container" class="product-grid"></div>
+
+  <!-- Modal (Hidden by default) -->
+  <!-- Fullscreen Modal -->
+  <div id="image-modal" class="modal">
+    <span class="close-btn" onclick="closeModal()">✖</span>
+    <button class="prev" onclick="changeImage(-1)">&lt;</button>
     <div class="modal-content">
-      <span class="close-btn" id="closeModal">&times;</span>
-      <h2 id="modalTitle"></h2>
-      <div id="modalImages"></div>
-      <p id="modalPrice"></p>
+      <img id="modal-image" src="" alt="Product Image">
     </div>
+    <button class="next" onclick="changeImage(1)">&gt;</button>
   </div>
 
   <script>
-    // Expanded Product Data
-    const products = [
+    const products = {
+        polo: [
         {
-            id: 1,
-            name: "Zinc Green Button-Down Half-Sleeves Polo",
-            details: "Button-Down Half-Sleeves Polo in premium pique for a fresh, classic look.",
-            category: "polo",
-            images: ["s1.jpg"]
-        },
-        {
-            id: 2,
-            name: "White Button-Down Half-Sleeves Polo",
-            details: "Classic comfort redefined in our white Button-Down Polo, crafted in premium pique.",
-            category: "polo",
-            images: ["s2.jpg"]
-        },
-        {
-            id: 3,
-            name: "Black Button-Down Half-Sleeves Polo",
-            details: "Elevate your style with our premium pique Button-Down Polo in timeless black.",
-            category: "polo",
-            images: ["s3.jpg"]
-        },
-        {
-            id: 4,
-            name: "White Drop Needle Zip Polo",
-            details: "Drop Needle Zip Polo in crisp white—style meets ultimate comfort.",
-            category: "polo",
-            images: ["t3.jpg"]
-        },
-        {
-            id: 5,
-            name: "Brown Drop Needle Zip Polo",
-            details: "Sophisticated brown Drop Needle Zip Polo, crafted for comfort and class.",
-            category: "polo",
-            images: ["t2.jpg"]
-        },
-        {
-            id: 6,
-            name: "Black Drop Needle Zip Polo",
-            details: "Timeless black Drop Needle Zip Polo for a sleek, stylish upgrade",
-            category: "polo",
-            images: ["t1.jpg"]
-        },
-        {
-            id: 7,
-            name: "Black Textured V-Neck Polo",
-            details: "Textured V-Neck Polo in sleek black—modern texture meets timeless style.",
-            category: "polo",
-            images: ["p1.jpg"]
-        },
-        {
-            id: 8,
-            name: "Pink Textured V-Neck Polo",
-            details: "Soft pink Textured V-Neck Polo for a chic and effortless look.",
-            category: "polo",
-            images: ["p2.jpg"]
-        },
-        {
-            id: 9,
-            name: "White Drop Needle Zip Polo",
-            details: "Timeless elegance meets comfort in this White Drop Needle Zip Polo, perfect for any occasion.",
-            category: "polo",
-            images: ["SW 1.jpg"]
-        },
-        {
-            id: 10,
-            name: "Red Drop Needle Zip Polo",
-            details: "Make a bold statement with the Red Drop Needle Zip Polo, blending style and sophistication.",
-            category: "polo",
-            images: ["SW 3.jpg"]
-        },
-        {
-            id: 11,
-            name: "Navy Blue Drop Needle Zip Polo",
-            details: "Elevate your wardrobe with the Navy Blue Drop Needle Zip Polo, a perfect balance of class and comfort.",
-            category: "polo",
-            images: ["SW 2.jpg"]
-        },
-        {
-            id: 12,
-            name: "Black 'Reconnect' Oversized T-Shirt",
-            details: "Make a bold statement with this oversized black tee featuring a futuristic Reconnect graphic.",
-            category: "polo",
-            images: ["HT 1.JPG", "HT 1.1.jpg", "HT 1.2.JPG"]
-        },
-        {
-            id: 13,
-            name: " Deep Teal Oversized T-Shirt",
-            details: "A stylish oversized t-shirt in deep teal with textured front embroidery, perfect for a casual and trendy look.",
-            category: "polo",
-            images: ["HT 2.JPG", "HT 2.1.jpg", "HT 2.2.JPG"]
-        },
-        {
-            id: 14,
-            name: "Light Gray 'Take The High Road' T-Shirt ",
-            details: "Stay inspired in this light gray tee with a stylish graphic promoting adventure and positivity.",
-            category: "polo",
-            images: ["HT 3.JPG", "HT 3.1.jpg", "HT 3.2.JPG"]
-        },
-        { id: 4, name: "3 Fleece Fabric", details: "Available in any color. MOQ: 150 kg", category: "raw-fabric", images: ["f1.jpg"] },
-    { id: 5, name: "2 Fleece Fabric", details: "Available in any color. MOQ: 150 kg", category: "raw-fabric", images: ["f2.jpeg"] },
-    { id: 6, name: "Sherpa Fleece", details: "Available in any color. MOQ: 150 kg", category: "raw-fabric", images: ["f3.webp"] },
-    { id: 7, name: "French Loop Terry", details: "Available in any color. MOQ: 150 kg", category: "raw-fabric", images: ["f4.avif"] },
-    { id: 8, name: "2 Terry", details: "Available in any color. MOQ: 150 kg", category: "raw-fabric", images: ["f5.jpg"] },
-    { id: 9, name: "Plated Terry", details: "Available in any color. MOQ: 150 kg", category: "raw-fabric", images: ["f6.avif"] },
-    { id: 10, name: "Single Rule Pique", details: "Available in any color. MOQ: 150 kg", category: "raw-fabric", images: ["f7.webp"] },
-    { id: 11, name: "Double Rule Pique", details: "Available in any color. MOQ: 150 kg", category: "raw-fabric", images: ["f8.avif"] },
-    { id: 12, name: "Lycra Pique", details: "Available in any color. MOQ: 150 kg", category: "raw-fabric", images: ["f9.jpg"] },
-    { id: 13, name: "Lacoste Pique", details: "Available in any color. MOQ: 150 kg", category: "raw-fabric", images: ["f10.jpg"] },
-    { id: 14, name: "Single Jersey", details: "Available in any color. MOQ: 150 kg", category: "raw-fabric", images: ["f11.jpg"] },
-    { id: 15, name: "Double Jersey", details: "Available in any color. MOQ: 150 kg", category: "raw-fabric", images: ["f12.jpg"] },
-    { id: 16, name: "Lycra Jersey", details: "Available in any color. MOQ: 150 kg", category: "raw-fabric", images: ["f13.webp"] },
-    { id: 17, name: "Interlock Jersey", details: "Available in any color. MOQ: 150 kg", category: "raw-fabric", images: ["f14.jpg"] },
-    { id: 18, name: "Tie & Dye Fabric", details: "Available in any color. MOQ: 150 kg", category: "raw-fabric", images: ["f15.jpg"] },
-    { id: 19, name: "Tie & Dye Fabric 1x1 Rib", details: "Available in any color. MOQ: 150 kg", category: "raw-fabric", images: ["f16.jpg"] },
-    { id: 20, name: "2x1 Rib", details: "Available in any color. MOQ: 150 kg", category: "raw-fabric", images: ["f17.jpg"] }
-];
-const renderProducts = (category) => {
-    const productGrid = document.getElementById("productGrid");
-    productGrid.innerHTML = ""; // Clear previous items
-
-    let filteredProducts = [];
-
-    if (category === "polo") {
-        filteredProducts = products.filter(product => product.category === "polo");
-    } else if (category === "raw-fabric") {
-        filteredProducts = products.filter(product => product.category === "raw-fabric");
-    }
-
-    console.log("Filtered Products:", filteredProducts); // Debugging: Check if Polo products are filtering
-
-    if (filteredProducts.length === 0) {
-        productGrid.innerHTML = "<p>No products found.</p>";  // If no Polo is found
-    } else {
-        filteredProducts.forEach(product => {
-            const productCard = document.createElement("div");
-            productCard.className = "product-card";
-            productCard.innerHTML = `
-                <img src="${product.images[0]}" alt="${product.name}">
-                <h3>${product.name}</h3>
-            `;
-
-            productCard.addEventListener("click", () => showProductDetails(product));
-            productGrid.appendChild(productCard);
-        });
-    }
-};
-
-    // Show Product Details in Modal
-    const showProductDetails = (product) => {
-        const productModal = document.getElementById("productModal");
-        const modalTitle = document.getElementById("modalTitle");
-        const modalImages = document.getElementById("modalImages");
-        const modalPrice = document.getElementById("modalPrice");
-        const sidebar = document.querySelector(".sidebar");
-
-        // Set product name and details
-        modalTitle.textContent = product.name;
-        modalPrice.textContent = `Details: ${product.details}`;
-
-        // Hide sidebar on mobile when modal opens
-        if (window.innerWidth < 768) {
-            sidebar.classList.remove("show");
-        }
-
-        // Populate modal with images
-        modalImages.innerHTML = product.images
-            .map(img => `<img src="${img}" alt="${product.name}" class="modal-product-image">`)
-            .join("");
-
-        // Create and add overlay
-        const modalOverlay = document.createElement("div");
-        modalOverlay.classList.add("modal-overlay");
-        document.body.appendChild(modalOverlay);
-
-        // Display the modal
-        productModal.style.display = "flex";
+                name: "Black Textured Polo",
+                description: "Solid black Textured polo with a minimalist design and stretchable material for a modern look.",
+                images: ["p1.jpg"]
+            },
+            {
+                name: "Pink Textured Polo",
+                description: "Light pink textured polo with short sleeves, classic collar, and breathable fabric.",
+                images: ["p2.jpg"]
+            },
+            {
+                name: "Green Button-Up Polo",
+                description: "Light green short-sleeve polo shirt with a soft collar and button-up design. Perfect for casual wear, offering a relaxed fit with breathable fabric.",
+                images: ["s1.jpg"]
+            },
+            {
+                name: "White Button-Up Polo",
+                description: "Crisp white short-sleeve polo shirt with a button-up style and a relaxed fit. Simple yet versatile, suitable for any casual occasion.",
+                images: ["s2.jpg"]
+            },
+            {
+                name: "Black Button-Up Polo",
+                description: "Stylish black short-sleeve polo shirt featuring a button-up front and a sleek, modern look. Ideal for both casual and semi-formal outfits.",
+                images: ["s3.jpg"]
+            },
+            {
+                name: "Brown Zipper Polo",
+                description: "A classic brown polo shirt with a sleek zipper detail on the front, offering a warm and earthy tone. Perfect for smart-casual occasions.",
+                images: ["t2.jpg"]
+            },
+            {
+                name: "Black Zipper Polo",
+                description: " A sleek black polo shirt with a front zipper detail, combining modern style with comfort. Perfect for casual and smart-casual looks.",
+                images: ["t1.jpg"]
+            },
+            {
+                name: "White Zipper Polo",
+                description: "A clean and crisp white polo shirt with a front zipper, blending timeless elegance with a modern touch. Ideal for a polished casual look.",
+                images: ["t3.jpg"]
+            },
+            {
+                name: "Beige Knit Button-Up",
+                description: "A lightweight ribbed button-up, perfect for layering with a relaxed, timeless style.",
+                images: ["cb3.jpg", "cb2.jpg", "cb1.jpg", "cb1.jpg"]
+            },
+            {
+                name: "Black Button-Up Knit Shirt",
+                description: "A sleek black knit shirt with a button-up design, combining minimalism and sophistication.",
+                images: ["nb2.jpg", "nb1.jpg", "nb.jpg", "nb3.jpg"]
+            },
+            {
+                name: "Evergreen Long-Sleeve Polo",
+                description: "A classic long-sleeve polo with contrast piping, ideal for a polished casual look.",
+                images: ["g1.jpg", "g2.jpg"]
+            },
+            {
+                name: "Rust Orange Long-Sleeve Polo",
+                description: "Classic orange polo with white-tipped details, perfect for a bold yet refined casual look.",
+                images: ["o.jpg"]
+            },
+            {
+                name: "Navy V-Neck Long-Sleeve Polo",
+                description: "A modern navy polo with a sleek v-neck detail, blending comfort and elegance.",
+                images: ["b.jpg", "b1.jpg", "b2.jpg", "b3.jpg"]
+            },
+            {
+                name: "Cream Collared Long-Sleeve Polo",
+                description: "Soft cream pullover with a sleek collar and contrast piping for a timeless smart-casual vibe.",
+                images: ["w.jpg", "w1.jpg", "w2.jpg"]
+            },
+            {
+                name: "Striped Button-Up Shirt with Gurkha Pants",
+                description: "This sophisticated ensemble combines a classic striped button-up shirt with modern high-waisted Gurkha pants.",
+                images: ["be.jpg", "be1.jpg", "be2.jpg"]
+            },
+            {
+                name: "Iftikhar Corporation Exclusive",
+                description: "Redefining style with timeless designs and premium craftsmanship.",
+                images: ["tg.jpg", "tg1.jpg", "tg2.jpg", "tg3.jpg"]
+            },
+            {
+                name: "Reconnect Graphic Tee",
+                description: "A comfortable oversized T-shirt featuring a bold 'Reconnect' glitch-style graphic print. Perfect for casual wear with a street-style vibe. Made from premium cotton for softness and durability.",
+                images: ["HT 1.jpg", "HT 1.1.jpg", "HT 1.2.jpg"]
+            },
+            {
+                name: "Dark Teal Embroidered T-Shirt",
+                description: "A dark teal T-shirt with a subtle embroidered 'Yes We See' detail. This piece combines casual comfort with refined detailing for a modern streetwear look.",
+                images: ["HT 2.jpg", "HT 2.1.jpg", "HT 2.2.jpg"]
+            },
+            {
+                name: "Light Grey Mountain Print T-Shirt",
+                description: "ightweight and breathable T-shirt with a scenic mountain-inspired graphic. This relaxed-fit tee is ideal for adventurous souls who love minimalist design and outdoor aesthetics.",
+                images: ["HT 3.jpg", "HT 3.1.jpg", "HT 3.2.jpg"]
+            }
+        ],
+        rawFabric: [
+            {
+                name: "Denim Raw Fabric",
+                description: "Premium quality denim fabric.",
+                images: ["f1.jpg"]
+            },
+            {
+                name: "Cotton Raw Fabric",
+                description: "Soft and durable cotton fabric.",
+                images: ["f2.jpeg"]
+            },
+            {
+                name: "Denim Raw Fabric",
+                description: "Premium quality denim fabric.",
+                images: ["f3.webp"]
+            },
+            {
+                name: "Denim Raw Fabric",
+                description: "Premium quality denim fabric.",
+                images: ["f4.avif"]
+            },
+            {
+                name: "Denim Raw Fabric",
+                description: "Premium quality denim fabric.",
+                images: ["f5.jpg"]
+            },
+            {
+                name: "Denim Raw Fabric",
+                description: "Premium quality denim fabric.",
+                images: ["f6.avif"]
+            },
+            {
+                name: "Denim Raw Fabric",
+                description: "Premium quality denim fabric.",
+                images: ["f7.webp"]
+            },
+            {
+                name: "Denim Raw Fabric",
+                description: "Premium quality denim fabric.",
+                images: ["f8.avif"]
+            },
+            {
+                name: "Denim Raw Fabric",
+                description: "Premium quality denim fabric.",
+                images: ["f9.jpg"]
+            },
+            {
+                name: "Denim Raw Fabric",
+                description: "Premium quality denim fabric.",
+                images: ["f10.jpg"]
+            },
+            {
+                name: "Denim Raw Fabric",
+                description: "Premium quality denim fabric.",
+                images: ["f11.jpg"]
+            },
+            {
+                name: "Denim Raw Fabric",
+                description: "Premium quality denim fabric.",
+                images: ["f12.jpg"]
+            },
+            {
+                name: "Denim Raw Fabric",
+                description: "Premium quality denim fabric.",
+                images: ["f13.webp"]
+            },
+            {
+                name: "Denim Raw Fabric",
+                description: "Premium quality denim fabric.",
+                images: ["f14.jpg"]
+            },
+            {
+                name: "Denim Raw Fabric",
+                description: "Premium quality denim fabric.",
+                images: ["f15.jpg"]
+            },
+            {
+                name: "Denim Raw Fabric",
+                description: "Premium quality denim fabric.",
+                images: ["f16.jpg"]
+            },
+            {
+                name: "Denim Raw Fabric",
+                description: "Premium quality denim fabric.",
+                images: ["f17.jpg"]
+            },
+        ]
     };
 
-    // Close Modal
-    const closeModal = document.getElementById("closeModal");
-    closeModal.addEventListener("click", () => {
-        const productModal = document.getElementById("productModal");
-        const modalOverlay = document.querySelector(".modal-overlay");
+    let currentImages = [];
+    let currentIndex = 0;
 
-        productModal.style.display = "none";
+    function showCategory(category) {
+        const container = document.getElementById("product-container");
+        container.innerHTML = "";
 
-        // Remove overlay when modal closes
-        if (modalOverlay) {
-            modalOverlay.remove();
-        }
-    });
+        products[category].forEach((product, index) => {
+            let productDiv = document.createElement("div");
+            productDiv.classList.add("product-card");
+            productDiv.innerHTML = `
+                <img src="${product.images[0]}" alt="${product.name}" class="product-image" onclick="openModal(${index}, '${category}')">
+                <div class="product-info">
+                    <h3>${product.name}</h3>
+                    <p>${product.description}</p>
+                </div>
+            `;
 
-    // Handle Category Clicks
-    document.querySelectorAll(".categories li").forEach(categoryItem => {
-        categoryItem.addEventListener("click", () => {
-            document.querySelectorAll(".categories li").forEach(item => item.classList.remove("active"));
-            categoryItem.classList.add("active");
-
-            const category = categoryItem.getAttribute("data-category");
-            renderProducts(category);
+            container.appendChild(productDiv);
         });
-    });
+    }
 
-    // Initial Render of Products
-    renderProducts();
-</script>
+    function openModal(index, category) {
+        currentImages = products[category][index].images;
+        currentIndex = 0;
 
+        let modal = document.getElementById("image-modal");
+        let modalImage = document.getElementById("modal-image");
 
+        modalImage.src = currentImages[currentIndex];
+        modal.style.display = "flex";
+    }
+
+    function changeImage(direction) {
+        currentIndex = (currentIndex + direction + currentImages.length) % currentImages.length;
+        document.getElementById("modal-image").src = currentImages[currentIndex];
+    }
+
+    function closeModal() {
+        document.getElementById("image-modal").style.display = "none";
+    }
+
+    showCategory("polo");
+  </script>
 </body>
 </html>

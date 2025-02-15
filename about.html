@@ -26,42 +26,58 @@
       line-height: 1.6;
       padding: 20px;
     }
-
-   /* Header Styles */
-   .header {
+  /* Header Styles */
+.header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(124, 133, 141, 0.85); /* Semi-transparent background */
-  border-bottom: 2px solid rgba(6, 82, 141, 0.85); /* Semi-transparent border */
-  box-shadow: 0 2px 5px rgba(6, 4, 4, 0.1);
+  background: rgba(20, 20, 20, 0.9); /* Dark Blue with slight transparency */
+  backdrop-filter: blur(10px); /* Soft glass effect */
+  border-bottom: 2px solid rgba(189, 195, 199, 0.2); /* Light Gray Border */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   z-index: 1000;
-  padding: 10px 20px;
-  font-size: 1.1rem;
-  align-items: center;
-  justify-content: center; /* Center all content horizontally */
-  flex-wrap: nowrap; /* Prevent wrapping */
+  padding: 10px 25px;
+  transition: all 0.3s ease-in-out;
+  animation: fadeInDown 0.8s ease-in-out;
+}
+
+/* Header Animation */
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .header-box {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: nowrap; /* Prevent wrapping */
+  flex-wrap: nowrap;
   width: 100%;
 }
 
+/* Logo Styling */
 .logo {
-    display: flex;
-    align-items: center;
-  }
+  font-size: 24px;
+  font-weight: 700;
+  color: #ecf0f1; /* Light color from your palette */
+}
 
-  .logo-img {
-    width: 50px; /* Adjust the width as needed */
-    height: auto; /* Keeps the image proportional */
-  }
+.logo-text {
+  color: #ecf0f1; /* Light grey */
+}
 
+.logo-highlight {
+  color: #e01010; /* Accent color if you want a different tone */
+ height: auto;
+}
+/* Navigation */
 .nav {
   display: flex;
   align-items: center;
@@ -71,35 +87,95 @@
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 15px; /* Space between links */
-  flex-wrap: nowrap; /* Ensure links stay horizontal */
+  gap: 20px;
+  flex-wrap: nowrap;
 }
 
 .nav-links a {
   text-decoration: none;
-  color: #1c1c1c;
+  color: #f5f5f5; /* Light Gray */
   padding: 10px 15px;
-  font-weight: normal;
-  transition: color 0.3s ease;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+  letter-spacing: 0.5px;
 }
 
+/* Hover Effect with Secondary Blue */
 .nav-links a:hover {
-  color: rgb(193, 200, 208);
+  color: #686666; /* Secondary Blue */
 }
 
-.cta {
-  background: rgb(5, 40, 102);
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s ease;
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 2px; /* Adjust to avoid overlap */
+  width: 0%;
+  height: 2px;
+  background: #5f6060; /* Underline color */
+  transition: width 0.3s ease, left 0.3s ease;
 }
 
-.cta:hover {
-  background: rgb(36, 40, 47);
+.nav-links a:hover::after {
+  width: 100%;
+  left: 0;
 }
+
+/* Responsive Styling for Smaller Screens */
+@media (max-width: 768px) {
+  .header-box {
+    flex-wrap: wrap; /* Prevent wrapping */
+    overflow-x: hidden; /* Allow horizontal scrolling if content overflows */
+  }
+
+  .nav-links {
+    flex-shrink: 0; /* Prevent shrinking */
+    gap: 10px; /* Adjust spacing for smaller screens */
+  }
+
+  .nav-links a {
+    display: block; /* Make links take full width */
+    text-align: center; /* Center text */
+    padding: 10px;
+  }
+
+  .cta {
+    padding: 8px 15px; /* Adjust button size */
+  }
+}
+
+ /* Responsive Design */
+ @media (max-width: 480px) {
+      .logo {
+        font-size: 24px;
+      }
+
+      .nav-links a {
+        font-size: 14px;
+      }
+
+      .cta {
+        font-size: 14px;
+        padding: 8px 15px;
+      }
+
+      .footer-logo {
+        font-size: 24px;
+      }
+    }
+
+    /* Keyframes for the animation */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+} 
 
 /* About Us Section */
 .about-us {
@@ -129,7 +205,7 @@
   color: #fff; 
   position: relative;
   padding: 20px; 
-  background: linear-gradient(45deg, #699ecd, #04536f); 
+  background: linear-gradient(45deg, #2c2a2a, #464a4b); 
   border-radius: 20px; 
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); 
   text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3); 
@@ -149,13 +225,13 @@
   width: 80%; /* Optional: Limits the width of text for better readability */
   margin: 0 auto;
   font-size: 1.1em; /* Adjusted for readability */
-  color: #333; /* Slightly darker for better readability */
+  color: #1a1717; /* Slightly darker for better readability */
   text-align: justify; /* Justify the text within the paragraphs */
   font-weight: normal; /* Regular weight for the paragraph text */
 }
 
 .about-us .highlight {
-  color: rgb(5, 40, 102); /* Accent color for specific words or phrases */
+  color: rgb(0, 0, 0); /* Accent color for specific words or phrases */
   font-weight: bold;
 }
 
@@ -163,7 +239,7 @@
   margin-top: 30px;
   font-size: 1.8rem;
   font-weight: bold;
-  color: #1265a4;
+  color: #ab0505;
   text-align: center; 
   font-family: 'Montserrat', sans-serif;
   font-weight: 900;
@@ -179,12 +255,12 @@
   font-weight: 400;
 }
 .about-us .values h3{
-  color: #02142e;
+  color: #010101;
 }
 
 .about-us .values div {
   text-align: left;
-  background-color: #6f828a;
+  background-color: #7d7c7c;
   padding: 15px;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -231,11 +307,11 @@
 
 h1.section-heading,
 h2.sub-heading {
-  color: #333;
+  color: #2d2d2d;
   margin-top: 20px;
   margin-bottom: 15px;
   padding-left: 15px;
-  border-left: 5px solid #07609c;
+  border-left: 5px solid #b90606;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
@@ -243,7 +319,7 @@ h1 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 900; 
   font-size: 36px; 
-  color: #08588e; 
+  color: #c70808; 
   text-align: center; 
   margin-top: 40px; 
   margin-bottom: 20px; 
@@ -279,7 +355,7 @@ h1 {
 
 .policy-list li::before {
   content: "★ ";
-  color: #044197; /* Star color */
+  color: #301414; /* Star color */
   font-size: 20px;
   margin-right: 10px;
 }
@@ -292,7 +368,7 @@ p {
 }
 
 a {
-  color: #007bff;
+  color: #cc0f0f;
   text-decoration: none;
 }
 
@@ -345,25 +421,10 @@ a:hover {
   color: #1c1c1c;
 }
 
-.social-media-links {
-  display: flex;
-  gap: 15px; /* Space between icons */
-}
-
-.social-media-links a {
-  color: #090909; /* White icons */
-  font-size: 16px; /* Icon size */
-  transition: color 0.3s ease;
-}
-
-.social-media-links a:hover {
-  color: #6d6d6d; /* Highlight color on hover */
-}
-
 .footer-copyright {
   text-align: right;
-  font-size: 12px;
-  color: #000000;
+  font-size: 16px;
+  color: #525252;
   font-weight: bolder;
 }
 
@@ -378,60 +439,6 @@ a:hover {
     text-align: center;
   }
 }
-
-/* Responsive Styling for Smaller Screens */
-@media (max-width: 768px) {
-  .header-box {
-    flex-wrap: nowrap; /* Prevent wrapping */
-    overflow-x: auto; /* Allow horizontal scrolling if content overflows */
-  }
-
-  .nav-links {
-    flex-shrink: 0; /* Prevent shrinking */
-    gap: 10px; /* Adjust spacing for smaller screens */
-  }
-
-  .nav-links a {
-    padding: 8px 12px; /* Slightly reduce padding */
-  }
-
-  .cta {
-    padding: 8px 15px; /* Adjust button size */
-  }
-}
-
- /* Responsive Design */
- @media (max-width: 480px) {
-      .logo {
-        font-size: 24px;
-      }
-
-      .nav-links a {
-        font-size: 14px;
-      }
-
-      .cta {
-        font-size: 14px;
-        padding: 8px 15px;
-      }
-
-      .footer-logo {
-        font-size: 24px;
-      }
-    }
-
-    /* Keyframes for the animation */
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
   </style>
 </head>
 <body>
@@ -440,7 +447,7 @@ a:hover {
   <header class="header">
     <div class="header-box">
       <div class="logo">
-        <img src="IC.png" alt="Brand Logo" class="logo-img">
+        <span class="logo-text">Iftikhar</span><span class="logo-highlight"> Corporation</span>
       </div>
       <nav class="nav">
         <ul class="nav-links">
@@ -499,18 +506,15 @@ a:hover {
     <li><strong> To Ensure Security and Prevent Fraud:</strong> We monitor for suspicious activity, prevent unauthorized access, and ensure the safety of your personal data.</li>
   </ul>
 
-  <p>By using our website, you consent to the collection and use of your information as described in this Privacy Policy. If you have any questions or concerns about how we use your information, please <a href="#">contact us</a>.</p>
+  <p>By using our website, you consent to the collection and use of your information as described in this Privacy Policy. If you have any questions or concerns about how we use your information, please <a href="contact.html">contact us</a>.</p>
 </section>
 <!-- Footer Section -->
 <footer class="footer">
   <div class="footer-container">
     <div class="footer-social-media">
-      
-      <div class="social-media-links">
-        <a href="https://www.facebook.com/" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://www.instagram.com/ic_textile/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
-          <a href="https://wa.me/+923702490300" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
-      </div>
+    </div>
+    <div class="footer-copyright">
+      <p>&copy; "IC Textile: Where Innovation Meets Style, Crafting Quality You Can Trust!"</p>
     </div>
   </div>
 </footer>

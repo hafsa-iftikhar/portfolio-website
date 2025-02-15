@@ -26,92 +26,190 @@
 }
 /* Header Styles */
 .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(124, 133, 141, 0.85);
-    border-bottom: 2px solid rgba(6, 82, 141, 0.85);
-    box-shadow: 0 2px 5px rgba(6, 4, 4, 0.1);
-    z-index: 1000;
-    padding: 10px 20px;
-    font-size: 1.1rem;
-    margin: 0; /* Reset any margin */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(20, 20, 20, 0.9); /* Dark Blue with slight transparency */
+  backdrop-filter: blur(10px); /* Soft glass effect */
+  border-bottom: 2px solid rgba(189, 195, 199, 0.2); /* Light Gray Border */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  padding: 10px 25px;
+  transition: all 0.3s ease-in-out;
+  animation: fadeInDown 0.8s ease-in-out;
+}
+
+/* Header Animation */
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .header-box {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: nowrap; /* Prevent wrapping */
+  flex-wrap: nowrap;
   width: 100%;
 }
 
+/* Logo Styling */
 .logo {
-    display: flex;
-    align-items: center;
-  }
+  font-size: 24px;
+  font-weight: 700;
+  color: #ecf0f1; /* Light color from your palette */
+}
 
-  .logo-img {
-    width: 50px; /* Adjust the width as needed */
-    height: auto; /* Keeps the image proportional */
-  }
+.logo-text {
+  color: #ecf0f1; /* Light grey */
+}
 
+.logo-highlight {
+  color: #e01010; /* Accent color if you want a different tone */
+ height: auto;
+}
+/* Navigation */
 .nav {
   display: flex;
   align-items: center;
+  margin: 0 auto;
 }
 
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 15px; /* Space between links */
-  flex-wrap: nowrap; /* Ensure links stay horizontal */
+  gap: 20px;
+  flex-wrap: nowrap;
 }
 
 .nav-links a {
   text-decoration: none;
-  color: #1c1c1c;
+  color: #f5f5f5; /* Light Gray */
   padding: 10px 15px;
-  font-weight: normal;
-  transition: color 0.3s ease;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+  letter-spacing: 0.5px;
 }
 
+/* Hover Effect with Secondary Blue */
 .nav-links a:hover {
-  color: rgb(193, 200, 208);
+  color: #686666; /* Secondary Blue */
 }
 
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: #5f6060; /* Muted Gray underline */
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Call to Action Button */
 .cta {
-  background: rgb(5, 40, 102);
-  color: white;
+  background: linear-gradient(135deg, #b90505, #b90505); /* Dark Blue to Light Gray */
+  color: rgb(244, 244, 244);
   border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
+  padding: 12px 24px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  text-transform: uppercase;
+  box-shadow: 0 4px 10px rgba(127, 140, 141, 0.3);
 }
 
 .cta:hover {
-  background: rgb(36, 40, 47);
+  background: linear-gradient(135deg, #e13c3c, #d21f1f);
+  box-shadow: 0 6px 15px rgba(241, 46, 46, 0.4);
+}
+
+
+/* Responsive Styling for Smaller Screens */
+@media (max-width: 768px) {
+  .header-box {
+    flex-wrap: wrap; /* Prevent wrapping */
+    overflow-x: hidden; /* Allow horizontal scrolling if content overflows */
+  }
+
+  .nav-links {
+    flex-shrink: 0; /* Prevent shrinking */
+    gap: 10px; /* Adjust spacing for smaller screens */
+  }
+
+  .nav-links a {
+    display: block; /* Make links take full width */
+    text-align: center; /* Center text */
+    padding: 10px;
+  }
+
+  .cta {
+    padding: 8px 15px; /* Adjust button size */
+  }
+}
+
+ /* Responsive Design */
+ @media (max-width: 480px) {
+      .logo {
+        font-size: 24px;
+      }
+
+      .nav-links a {
+        font-size: 14px;
+      }
+
+      .cta {
+        font-size: 14px;
+        padding: 8px 15px;
+      }
+
+      .footer-logo {
+        font-size: 24px;
+      }
+    }
+
+    /* Keyframes for the animation */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* First Section */
 .hero {
     display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
+    flex-wrap: wrap; /* Allow content to wrap for responsiveness */
+    align-items: center;
     justify-content: center;
-    padding-top: 80px; /* Keep this for spacing from header */
-    background-color: #e0e0e0;
+    padding: 50px;
+    background-color: #ffffff;
     min-height: 100vh;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    gap: 20px;
-    flex-direction: column;
-    position: relative;
-    z-index: 0;
+    gap: 20px; /* Add spacing between elements on wrap */
 }
+
 .hero-text {
-    width: 100%; /* Limit text width for desktops */
+    max-width: 50%; /* Limit text width for desktops */
     text-align: justify;
     flex: 1;
     margin-right: 20px;
@@ -125,34 +223,14 @@
 }
 
 .hero-text p {
-    text-align: justify;
-    max-width: 100%; /* Allow the paragraph to use full width */
-    margin: 0 auto;
-    line-height: 1.6;
-    padding: 0 15px;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #555;
 }
 
 .button-container {
-  text-align: center;
-  width: 100%;
-  margin-top: 20px;;
-}
-
-.custom-button {
-  background-color: #396997; /* Professional blue */
-  color: white;
-  display: inline-block;
-  padding: 12px 20px;
-  font-size: 16px;
-  border-radius: 8px;
-  text-align: center;
-  white-space: nowrap;
-}
-
-.custom-button:hover {
-  background-color: #063c84; /* Slightly darker blue on hover */
-  transform: scale(1.05); /* Slight zoom effect */
-  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
+  text-align: left;
+  margin-top: 20px;
 }
 
 .hero-image {
@@ -192,18 +270,21 @@
 
 
 /* Second Section */
+/* Second Section */
 .second-section {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: #fbfcfc; /* Soft light blue background */
-  padding: 20px;
+  height: auto;
+  min-height: 100vh;
+  background-color: #fbfcfc;
+  padding: 40px 20px;
 }
 
 .content-container {
-  display: flex; /* Use flexbox to align items horizontally */
-  justify-content: flex-start; /* Align items to the start */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
   align-items: center;
   max-width: 1000px;
   width: 100%;
@@ -211,32 +292,32 @@
   padding: 30px;
   border-radius: 15px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  gap: 40px; /* Space between the heading and the content */
+  gap: 40px;
 }
 
 .second-section h2 {
-  font-size: 3rem; /* Adjust heading size */
+  font-size: 3rem;
   font-weight: bold;
-  color: #2c3e50; /* Darker color for contrast */
-  background: none; /* Remove the background gradient */
-  padding: 15px 25px; /* Adjust padding */
-  margin-bottom: 20px; /* Add space below the heading */
-  border-left: 5px solid #07609c; /* Add a left border for emphasis */
-  text-transform: uppercase; /* Make text uppercase for emphasis */
-  letter-spacing: 2px; /* Add letter spacing for a more spaced-out look */
-  text-align: left; /* Align text to the left */
-  box-shadow: none; /* Remove shadow effect */
+  color: #2b2a2a;
+  padding: 15px;
+  margin-bottom: 0;
+  border-left: 4px solid #990505;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 1.2; /* Reduce height */
+  display: inline-block;
+ 
 }
 
 .order-details {
-  text-align: left; 
+  text-align: left;
 }
 
 .second-section p {
-  font-size: 1.1rem;
-  color: #171616;
-  font-weight: 900;
-  line-height: 1.6;
+  font-size: 1rem;
+  color: #111111;
+  font-weight: 700;
+  line-height: 1.5;
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 20px;
@@ -254,107 +335,103 @@
   margin-bottom: 12px;
   line-height: 1.6;
   padding: 12px 18px;
-  background: linear-gradient(135deg, #486186, #5a92d3); /* Gradient bubble effect */
+  background: linear-gradient(135deg, rgb(55, 55, 55), rgb(77, 70, 70));
   border-radius: 12px;
   color: #fff;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 15px rgba(135, 102, 102, 0.1);
   transition: transform 0.2s ease, background 0.3s ease;
 }
 
 .order-steps li:hover {
-  transform: translateY(-5px); /* Subtle lift effect on hover */
-  background: linear-gradient(135deg, #2f5587, #7fa2c3); /* Lighter gradient on hover */
+  transform: translateY(-5px);
+  background: linear-gradient(135deg, #666666, #626364);
 }
 
 .order-steps strong {
   font-weight: bolder;
-  color: #ffffff;
+  color: #e6e6e6;
 }
-.order-steps li strong {
-  color: #000000; /* Replace with your desired color */
+@media (max-width: 768px) {
+  .content-container {
+    flex-direction: column; /* Stack content on small screens */
+    text-align: center;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .second-section h2 {
+    font-size: 2rem;
+    max-width: 90%;
+    text-align: left;
+    border-left: 5px solid #990505;
+    padding-left: 15px;
+    line-height: 1.5; /* Adjust spacing to reduce height */
+    display: inline-block; 
+  }
+  .order-steps {
+    text-align: center;
+  }
+
+  .order-steps li {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
 }
 
 /* Third Section */
-/* Section - Services */
 .services {
-  background-color: #fff;
-  padding: 50px 15px;
   text-align: center;
+  padding: 60px 20px;
+  background-color: #f8f9fa;
 }
 
-.services h2 {
+.section-title {
   font-size: 2.5rem;
-  margin-bottom: 20px;
-}
-
-.services p {
-  font-size: 1.2rem;
-  color: #555;
-  margin-bottom: 40px;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
   font-weight: bold;
+  animation: fadeInUp 1s ease-in-out;
 }
 
-/* Service Cards Container */
+.section-description {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  animation: fadeInUp 1.2s ease-in-out;
+}
+
 .service-cards {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
-  gap: 30px;
-  margin-top: 20px;
-}
-
-.service-cards p{
-  font-weight: 100;
+  justify-content: center;
+  gap: 20px;
 }
 
 .service-card {
-  background-color: #f9f9f9;
-  padding: 30px; /* Increased padding */
-  width: 320px; /* Increased width */
-  height: 320px; /* Increased height */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  text-align: justify; /* Justify the text inside the cards */
-  border-radius: 8px;
-  transition: transform 0.3s ease, background-color 0.3s ease;
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeInUp 0.6s forwards;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  animation: fadeInUp 1.5s ease-in-out;
 }
 
-/* Card Hover Effects */
 .service-card:hover {
   transform: translateY(-10px);
-  background-color: #89939b;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Service Card Title */
-.service-card h3 {
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-  font-weight: bold;
-  text-align: center;
-  color: #04255e;
+.icon {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #d32f2f;
 }
 
-/* Service Card Paragraph */
-.service-card p {
-  font-size: 1rem;
-  color: #373737;
-  line-height: 1.5;
-  word-wrap: break-word; /* Prevent overflow */
-  text-align: justify; /* Justify the paragraph text */
-}
-
-/* Fade-in animation for card */
 @keyframes fadeInUp {
-  0% {
+  from {
     opacity: 0;
     transform: translateY(30px);
   }
-  100% {
+  to {
     opacity: 1;
     transform: translateY(0);
   }
@@ -363,36 +440,11 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .service-cards {
-    justify-content: center;
-    gap: 20px;
-  }
-
-  .service-card {
-    width: 90%; /* Increase width for smaller screens */
-    max-width: 400px; /* Set a max-width */
-    height: auto;
-  }
-
-  .services h2 {
-    font-size: 2rem;
-  }
-
-  .services p {
-    font-size: 1rem;
+    flex-direction: column;
+    align-items: center;
   }
 }
 
-@media (max-width: 480px) {
-  .services p {
-    font-size: 0.9rem;
-  }
-
-  .service-card {
-    width: 100%;
-    max-width: 320px;
-    height: auto;
-  }
-}
     /* Modal Styles */
     .modal {
       display: none; /* Hidden by default */
@@ -537,7 +589,7 @@
 .footer-copyright {
   text-align: right;
   font-size: 16px;
-  color: #505050;
+  color: #525252;
   font-weight: bolder;
 }
 
@@ -553,140 +605,44 @@
   }
 }
 
-/* Responsive Styling for Smaller Screens */
-@media (max-width: 768px) {
-  .header-box {
-    flex-wrap: nowrap; /* Prevent wrapping */
-    overflow-x: auto; /* Allow horizontal scrolling if content overflows */
-  }
-
-  .nav-links {
-    flex-shrink: 0; /* Prevent shrinking */
-    gap: 10px; /* Adjust spacing for smaller screens */
-  }
-
-  .nav-links a {
-    padding: 8px 12px; /* Slightly reduce padding */
-  }
-
-  .cta {
-    padding: 8px 15px; /* Adjust button size */
-  }
-}
-
- /* Responsive Design */
- @media (max-width: 480px) {
-      .logo {
+/*1 sectionn*/
+/* Adjustments for Small Screens */
+@media (max-width: 480px) {
+    .logo {
         font-size: 24px;
-      }
-
-      .nav-links a {
-        font-size: 14px;
-      }
-
-      .cta {
-        font-size: 14px;
-        padding: 8px 15px;
-      }
-
-      .footer-logo {
-        font-size: 24px;
-      }
     }
 
-/*1 sectionn*/
-@media (max-width: 480px) {
-  .logo {
-    font-size: 24px; /* Reduces logo size */
-  }
+    .nav-links a {
+        font-size: 14px;
+    }
 
-  .nav-links a {
-    font-size: 14px; /* Reduces font size of links */
-  }
+    .cta {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
 
-  .cta {
-    font-size: 14px; /* Reduces button font size */
-    padding: 8px 12px;
-  }
-}
-@media (max-width: 768px) {
-  /* First Section Fix */
-  .hero {
-    flex-direction: column; /* Stack text and image */
-    text-align: center; /* Center everything */
-    padding-top: 100px;
-  }
+    .hero {
+      padding-top: 100px !important;
+      text-align: center; /* Centers text for better mobile view */
+    }
 
-  .hero-text {
-    width: 100%; /* Ensure full width */
-    padding: 0 15px; /* Adjust padding */
-  }
+    .hero-text h1 {
+        font-size: 28px;
 
-  .hero-text h1 {
-    font-size: 2rem; /* Reduce heading size */
-    text-align: center; /* Center text */
-    margin-bottom: 15px;
-  }
+    }
 
-  .hero-text p {
-    font-size: 1rem;
-    text-align: justify;
-    padding: 0 10px; /* Center paragraph */
-    line-height: 1.5; /* Improve spacing */
-  }
+    .hero-text p {
+        font-size: 0.8rem;
+    }
 
-  .button-container {
-    text-align: center; /* Center button */
-    margin-top: 15px;
-  }
+    .hero-buttons a {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
 
-  .hero-image {
-    width: 100%; /* Ensure full width */
-    display: flex;
-    justify-content: center; /* Center image */
-  }
-
-  .hero-image img {
-    max-width: 80%; /* Ensure image is not too large */
-    height: auto;
-  }
-}
-@media (max-width: 768px) {
-  .custom-button {
-    width: auto; /* Prevents it from stretching weirdly */
-  }
-}
-  /* Fix Second Section */
-  .second-section {
-    height: auto; /* Remove fixed height */
-    padding: 30px 10px;
-  }
-
-  .content-container {
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    max-width: 100%;
-    gap: 20px;
-  }
-
-  .second-section h2 {
-    font-size: 2rem;
-    text-align: center;
-  }
-
-  .order-details {
-    text-align: center;
-  }
-
-  .order-steps {
-    text-align: center;
-  }
-
-  .order-steps li {
-    font-size: 0.9rem;
-    padding: 10px;
-  }
+    .hero-image img {
+        max-width: 90%;
+    }
 }
 
 /* 3 section */
@@ -705,6 +661,67 @@
         height: 200px; /* Adjust height for mobile */
     }
 }
+
+/* Fullscreen Intro */
+/* Fullscreen Background */
+.intro-screen {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(120deg, #0a0a0a, #1a1a1a);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    overflow: hidden;
+    animation: fadeOut 2s forwards 4s;
+}
+
+/* Text Styling */
+.intro-text {
+    font-size: 4rem;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Glowing Letter Effect */
+.intro-text span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(30px) scale(0.8);
+    animation: floatUp 1s ease-in-out forwards;
+    text-shadow: 0 0 10px #262525, 0 0 20px #575555, 0 0 40px #7a7979;
+}
+
+/* Animation Delay for Each Letter */
+.intro-text span:nth-child(1) { animation-delay: 0s; }
+.intro-text span:nth-child(2) { animation-delay: 0.1s; }
+.intro-text span:nth-child(3) { animation-delay: 0.2s; }
+.intro-text span:nth-child(4) { animation-delay: 0.3s; }
+.intro-text span:nth-child(5) { animation-delay: 0.4s; }
+.intro-text span:nth-child(6) { animation-delay: 0.5s; }
+.intro-text span:nth-child(7) { animation-delay: 0.6s; }
+.intro-text span:nth-child(8) { animation-delay: 0.7s; }
+.intro-text span:nth-child(9) { animation-delay: 0.8s; }
+.intro-text span:nth-child(10) { animation-delay: 0.9s; }
+.intro-text span:nth-child(11) { animation-delay: 1s; }
+
+/* Floating Effect */
+@keyframes floatUp {
+    0% { opacity: 0; transform: translateY(30px) scale(0.8); }
+    50% { opacity: 1; transform: translateY(-10px) scale(1.05); }
+    100% { opacity: 1; transform: translateY(0px) scale(1); }
+}
+
+/* Fade-Out Effect */
+@keyframes fadeOut {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(1.1); visibility: hidden; }
+}
   </style>
 </head>
 <body>
@@ -712,7 +729,7 @@
   <header class="header">
     <div class="header-box">
       <div class="logo">
-        <img src="IC.png" alt="Brand Logo" class="logo-img">
+        <span class="logo-text">Iftikhar</span><span class="logo-highlight"> Corporation</span>
       </div>
       <nav class="nav">
         <ul class="nav-links">
@@ -722,24 +739,36 @@
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
-      <button class="cta" id="scheduleMeetingBtn">Schedule a Meeting</button>
     </div>
-  </header>
+</header>
+
+<!-- intro page -->
+<div id="intro" class="intro-screen">
+  <h1 class="intro-text">
+      <span>I</span><span>F</span><span>T</span><span>I</span><span>K</span><span>H</span><span>A</span><span>R</span>
+      <br>
+      <span>C</span><span>O</span><span>R</span><span>P</span><span>O</span><span>R</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span>
+  </h1>
+</div>
 
   <!-- First Section -->
-  <section class="hero">
-    <div class="hero-text">
-        <h1>Welcome to Iftikhar Corporation</h1>
-        <p>At Iftikhar Corporation, we pride ourselves on being a trusted name in the textile industry, specializing in transforming premium-quality yarn into exceptional fabrics and garments. We begin by carefully selecting the finest raw materials, ensuring each thread meets the highest standards of durability, comfort, and elegance. Our skilled artisans and advanced technology work together to create products that reflect precision and quality, whether it’s in classic designs or contemporary styles. 
-          <br> <br>
-          Each garment we produce embodies our passion for craftsmanship and dedication to customer satisfaction. At Iftikhar Corporation, excellence is at the heart of everything we do, shaping every fabric and garment to meet the expectations of quality, reliability, and trust.</p>
-          <div class="button-container">
-          <a href="#contact" class="custom-button">Explore Our Services</a>
-        </div>
-    </div>
-    <div class="hero-image">
-        <img src="p3.jpg" alt="Nature" class="responsive">
-    </div>
+<section class="hero">
+  <div class="hero-text">
+      <h1>Welcome to Iftikhar Corporation</h1>
+      <p>"At Iftikhar Corporation, we specialize in transforming premium-quality yarn into exceptional fabrics and garments. With carefully selected raw materials, skilled artisans, and advanced technology, we ensure durability, comfort, and elegance in every piece. Our commitment to craftsmanship and customer satisfaction drives us to deliver quality, reliability, and excellence in every fabric we create."</p>
+      <div class="button-container">
+          <button class="cta" id="scheduleMeetingBtn">Schedule a Meeting</button>
+      </div>
+      <div id="customAlert" class="modal">
+          <div class="modal-content">
+              <p>Your meeting request has been sent! We will contact you soon.</p>
+              <button id="closeAlert">OK</button>
+          </div>
+      </div>
+  </div>
+  <div class="hero-image">
+      <img src="p3.jpg" alt="Nature" class="responsive">
+  </div>
 </section>
 
 <!-- Second Section -->
@@ -759,26 +788,29 @@
 </section>
 <!-- Third Section -->
 <section class="services">
-  <h2>Our Services</h2>
-  <p>At Iftikhar Corporation, we are driven by a passion for excellence and a commitment to customer satisfaction.<br>
-    Explore our core services:</p>
+  <h2 class="section-title">Our Services</h2>
+  <p class="section-description">
+    At Iftikhar Corporation, we are driven by a passion for excellence and a commitment to customer satisfaction.<br>
+    Explore our core services:
+  </p>
   <div class="service-cards">
     <div class="service-card">
+      <div class="icon">🎯</div>
       <h3>Tailored Product Solutions</h3>
       <p>We specialize in offering high-quality, customized products that cater to your specific requirements. Our team carefully selects each item to ensure it meets the highest standards, delivering unparalleled value to your business or personal needs.</p>
     </div>
     <div class="service-card">
+      <div class="icon">💡</div>
       <h3>Consulting & Expert Guidance</h3>
       <p>With years of experience in the industry, our team of experts provides professional consulting services to help your business reach its full potential. Whether you need advice on strategy, operations, or improving efficiency, we are here to guide you every step of the way.</p>
     </div>
     <div class="service-card">
+      <div class="icon">📞</div>
       <h3>Customer Support Excellence</h3>
       <p>Your satisfaction is our priority. We offer exceptional customer support designed to resolve any concerns and ensure that your experience with Iftikhar Corporation is always seamless. Our team is available to assist you, providing fast and reliable solutions whenever you need them.</p>
     </div>
   </div>
 </section>
-
-
   <!-- Modal -->
   <div id="bookingModal" class="modal">
     <div class="modal-content">
@@ -820,12 +852,9 @@
 <footer class="footer">
   <div class="footer-container">
     <div class="footer-social-media">
-      
-      <div class="social-media-links">
-        <a href="https://www.facebook.com/" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://www.instagram.com/ic_textile/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
-          <a href="https://wa.me/+923702490300" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
-      </div>
+    </div>
+    <div class="footer-copyright">
+      <p>&copy; "IC Textile: Where Innovation Meets Style, Crafting Quality You Can Trust!"</p>
     </div>
   </div>
 </footer>
@@ -933,6 +962,14 @@
         alert("Your meeting request has been sent! We will contact you soon."); // Show success message
         closeModal(); // Reset and close the modal
     });
+
+    // introo
+
+    document.addEventListener("DOMContentLoaded", function() {
+    setTimeout(() => {
+        document.getElementById("intro").style.display = "none";
+    }, 5000);
+});
 </script>
 </body>
 </html>

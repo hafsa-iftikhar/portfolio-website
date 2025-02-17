@@ -664,11 +664,14 @@
     justify-content: center;
     flex-direction: column;
     z-index: 9999;
+    overflow: hidden; /* Prevents overflow on smaller screens */
 }
 
 /* Text Styling */
 .intro-text {
     display: flex;
+    flex-wrap: wrap; /* Allows text to wrap */
+    justify-content: center;
     font-size: 3rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -691,18 +694,40 @@
     transform: translateY(0) rotate(0deg);
 }
 
-/* Yarn Emoji Animation (Bouncing) */
+/* Yarn Emoji Styling (Red or Maroon) */
 .emoji {
     font-size: 3.5rem;
+    color: #b22222; /* Red color for the emoji */
     animation: bounceYarn 2s ease-in-out infinite;
 }
 
+/* Yarn Emoji Animation (Bouncing) */
 @keyframes bounceYarn {
     0%, 100% {
         transform: translateY(0);
     }
     50% {
         transform: translateY(-10px);
+    }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .intro-text {
+        font-size: 2.5rem; /* Smaller text size for mobile */
+    }
+    .emoji {
+        font-size: 3rem; /* Smaller emoji size for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .intro-text {
+        font-size: 2rem; /* Even smaller text for very small screens */
+        text-align: center; /* Center the text */
+    }
+    .emoji {
+        font-size: 2.5rem; /* Smaller emoji size */
     }
 }
 

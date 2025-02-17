@@ -714,23 +714,33 @@
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
     .intro-text {
-        font-size: 2.5rem; /* Smaller text size for mobile */
+        font-size: 2.2rem; /* Reduced font size for tablets and smaller screens */
+        text-align: center; /* Center the text */
     }
     .emoji {
-        font-size: 3rem; /* Smaller emoji size for mobile */
+        font-size: 3rem; /* Smaller emoji size for tablets */
     }
 }
 
 @media (max-width: 480px) {
     .intro-text {
-        font-size: 2rem; /* Even smaller text for very small screens */
+        font-size: 1.8rem; /* Further reduced font size for smaller screens */
         text-align: center; /* Center the text */
+        margin: 0 10px; /* Add margin to avoid text touching screen edges */
     }
     .emoji {
-        font-size: 2.5rem; /* Smaller emoji size */
+        font-size: 2.5rem; /* Even smaller emoji size for phones */
     }
 }
 
+@media (max-width: 320px) {
+    .intro-text {
+        font-size: 1.5rem; /* Even further reduction for very small screens */
+    }
+    .emoji {
+        font-size: 2rem; /* Further reduce emoji size */
+    }
+}
   </style>
 </head>
 <body>

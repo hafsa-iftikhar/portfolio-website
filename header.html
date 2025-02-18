@@ -741,6 +741,14 @@
         font-size: 2rem; /* Further reduce emoji size */
     }
 }
+.space {
+    display: inline-block;
+    width: 20px; /* Adjust this value for more or less space */
+}
+.intro-text span:nth-child(8) { 
+    margin-right: 20px; /* Adjust spacing */
+}
+
   </style>
 </head>
 <body>
@@ -765,11 +773,11 @@
 <div id="intro" class="intro-screen">
   <div class="knitted-character"></div>
   <h1 class="intro-text">
-     <!-- Yarn emoji with animation -->
-      <span>I</span><span>F</span><span>T</span><span>I</span><span>K</span><span>H</span><span>A</span><span>R</span> 
-      <span>C</span><span>O</span><span>R</span><span>P</span><span>O</span><span>R</span><span>A</span><span>T</span><span>I</span><span>O</span>
-      <span class="emoji">🧶</span> <!-- Another Yarn emoji with animation -->
-  </h1>
+    <span>I</span><span>F</span><span>T</span><span>I</span><span>K</span><span>H</span><span>A</span><span>R</span>
+    <span class="space"></span> <!-- Empty span for spacing -->
+    <span>C</span><span>O</span><span>R</span><span>P</span><span>O</span><span>R</span><span>A</span><span>T</span><span>I</span><span>O</span>
+    <span class="emoji">🧶</span> <!-- Yarn emoji -->
+</h1>
 </div>
 
   <!-- First Section -->

@@ -198,13 +198,14 @@
   }
 }
 /*section 2*/
+/* Category Buttons */
 .category-buttons {
-  display: flex;
+    display: flex;
     justify-content: center;
     gap: 15px;
     padding: 20px 0;
-    flex-wrap: wrap; /* Ensures responsiveness */
-    margin-top: 50px; 
+    flex-wrap: wrap;
+    margin-top: 20px;
 }
 
 .category-buttons button {
@@ -222,59 +223,57 @@
     background-color: #444;
 }
 
-/* Product grid container */
-/* Ensure product grid displays in two columns */
+/* Product Grid */
 .product-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
-  padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive 2-column layout */
+    gap: 12px;
+    padding: 10px;
+    justify-content: center;
 }
 
-/* Ensure product cards adjust properly */
+/* Product Card */
 .product-card {
-    width: 100%; /* Each product takes full column width */
-    max-width: 400px; /* Prevent excessive stretching */
     background: #fff;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 12px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-    transition: transform 0.3s ease;
-    flex: 1 1 45%;
+    transition: transform 0.3s ease-in-out;
+    position: relative;
+    width: 100%; /* Takes full grid width */
 }
 
 .product-card:hover {
     transform: scale(1.05);
 }
 
-/* Product images */
+/* Product Images */
 .product-card img {
-    width: 80%;
-    height: auto;
-    border-radius: 10px;
+    width: 100%;
+    border-radius: 12px;
     object-fit: cover;
-    cursor: pointer;
+    max-height: 200px; /* Consistent image height */
 }
-/* Image switch button */
+
+/* Image Switch Button */
 .next-image {
-      position: absolute;
-      top: 50%;
-      right: 5px;
-      background: rgba(0, 0, 0, 0.5);
-      color: rgb(243, 243, 243);
-      border: none;
-      cursor: pointer;
-      padding: 5px;
-      transform: translateY(-50%);
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    background: rgba(0, 0, 0, 0.5);
+    color: rgb(243, 243, 243);
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    transform: translateY(-50%);
 }
 
 .next-image:hover {
     background: #444;
 }
 
-/* Product description */
+/* Product Description */
 .product-card h3 {
     margin: 10px 0 5px;
     font-size: 18px;
@@ -285,6 +284,7 @@
     font-size: 14px;
     color: #666;
 }
+
 /* Modal Styling */
 .modal {
     display: none;
@@ -323,6 +323,7 @@
     cursor: pointer;
 }
 
+/* Modal Navigation Buttons */
 .prev, .next {
     position: absolute;
     top: 50%;
@@ -341,41 +342,51 @@
 .prev:hover, .next:hover {
     background: white;
 }
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .product-grid {
-        flex-direction: column;
-        align-items: center;
+        grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .product-card {
         width: 90%;
         max-width: 350px;
     }
-    
-    .nav {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
-    
-    .nav button {
-        width: 80%;
-        text-align: center;
+
+    .category-buttons {
+        flex-direction: row;
+        justify-content: center;
     }
 }
 
 @media (max-width: 480px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
     .product-card {
         max-width: 90%;
     }
-    
+
     .next-image {
         right: 5px;
         padding: 3px 8px;
         font-size: 14px;
     }
+
+    .modal-content img {
+        max-width: 80%;
+        max-height: 80%;
+    }
+
+    .category-buttons button {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
 }
+
   </style>
 </head>
 <body>
@@ -396,120 +407,101 @@
     </div>
 </header>
 <br>
-  <div class="category-buttons">
-    <button onclick="showCategory('polo')">Stitched</button>
-    <button onclick="showCategory('rawFabric')">Raw Fabric</button>
-  </div>
+<div class="category-buttons">
+  <button onclick="showCategory('polo')">Stitched</button>
+  <button onclick="showCategory('rawFabric')">Raw Fabric</button>
+</div>
 
-  <div id="product-container" class="product-grid"></div>
+<div id="product-container" class="product-grid"></div>
 
-  <!-- Modal (Hidden by default) -->
-  <!-- Fullscreen Modal -->
-  <div id="image-modal" class="modal">
-    <span class="close-btn" onclick="closeModal()">✖</span>
-    <button class="prev" onclick="changeImage(-1)">&lt;</button>
-    <div class="modal-content">
+<!-- Fullscreen Image Modal -->
+<div id="image-modal" class="modal">
+  <span class="close-btn" onclick="closeModal()">✖</span>
+  <button class="prev" onclick="changeImage(-1)">&lt;</button>
+  <div class="modal-content">
       <img id="modal-image" src="" alt="Product Image">
-    </div>
-    <button class="next" onclick="changeImage(1)">&gt;</button>
   </div>
+  <button class="next" onclick="changeImage(1)">&gt;</button>
+</div>
+
 
   <script>
     const products = {
         polo: [
         {
                 name: "Black Button-Up Knit Shirt",
-                description: "A sleek black knit shirt with a button-up design, combining minimalism and sophistication.",
                 images: ["nb2.jpg", "nb1.jpg", "nb.jpg", "nb3.jpg"]
             },
             {
                 name: "Beige Knit Button-Up",
-                description: "A lightweight ribbed button-up, perfect for layering with a relaxed, timeless style.",
                 images: ["cb3.jpg", "cb2.jpg", "cb1.jpg", "cb1.jpg"]
             },
             {
                 name: "Cream Collared Long-Sleeve Polo",
-                description: "Soft cream pullover with a sleek collar and contrast piping for a timeless smart-casual vibe.",
                 images: ["w.jpg", "w1.jpg", "w2.jpg"]
             },
             {
                 name: "Striped Button-Up Shirt with Gurkha Pants",
-                description: "This sophisticated ensemble combines a classic striped button-up shirt with modern high-waisted Gurkha pants.",
                 images: ["be.jpg", "be1.jpg", "be2.jpg"]
             },
             {
                 name: "Evergreen Long-Sleeve Polo",
-                description: "A classic long-sleeve polo with contrast piping, ideal for a polished casual look.",
                 images: ["g1.jpg", "g2.jpg"]
             },
             {
                 name: "Rust Orange Long-Sleeve Polo",
-                description: "Classic orange polo with white-tipped details, perfect for a bold yet refined casual look.",
                 images: ["o.jpg"]
             },
             {
                 name: "Navy V-Neck Long-Sleeve Polo",
-                description: "A modern navy polo with a sleek v-neck detail, blending comfort and elegance.",
                 images: ["b.jpg", "b1.jpg", "b2.jpg"]
             },
         {
                 name: "Black Textured Polo",
-                description: "Solid black Textured polo with a minimalist design and stretchable material for a modern look.",
                 images: ["p1.jpg"]
             },
             {
                 name: "Pink Textured Polo",
-                description: "Light pink textured polo with short sleeves, classic collar, and breathable fabric.",
                 images: ["p2.jpg"]
             },
             {
                 name: "Green Button-Up Polo",
-                description: "Light green short-sleeve polo shirt with a soft collar and button-up design. Perfect for casual wear, offering a relaxed fit with breathable fabric.",
                 images: ["s1.jpg"]
             },
             {
                 name: "White Button-Up Polo",
-                description: "Crisp white short-sleeve polo shirt with a button-up style and a relaxed fit. Simple yet versatile, suitable for any casual occasion.",
                 images: ["s2.jpg"]
             },
             {
                 name: "Black Button-Up Polo",
-                description: "Stylish black short-sleeve polo shirt featuring a button-up front and a sleek, modern look. Ideal for both casual and semi-formal outfits.",
                 images: ["s3.jpg"]
             },
             {
                 name: "Brown Zipper Polo",
-                description: "A classic brown polo shirt with a sleek zipper detail on the front, offering a warm and earthy tone. Perfect for smart-casual occasions.",
                 images: ["t2.jpg"]
             },
             {
                 name: "Black Zipper Polo",
-                description: " A sleek black polo shirt with a front zipper detail, combining modern style with comfort. Perfect for casual and smart-casual looks.",
                 images: ["t1.jpg"]
             },
             {
                 name: "White Zipper Polo",
-                description: "A clean and crisp white polo shirt with a front zipper, blending timeless elegance with a modern touch. Ideal for a polished casual look.",
                 images: ["t3.jpg"]
             },
             {
                 name: "Iftikhar Corporation Exclusive",
-                description: "Redefining style with timeless designs and premium craftsmanship.",
                 images: ["tg.jpg", "tg1.jpg", "tg2.jpg", "tg3.jpg"]
             },
             {
                 name: "Reconnect Graphic Tee",
-                description: "A comfortable oversized T-shirt featuring a bold 'Reconnect' glitch-style graphic print. Perfect for casual wear with a street-style vibe. Made from premium cotton for softness and durability.",
                 images: ["HT 1.jpg", "HT 1.1.jpg", "HT 1.2.jpg"]
             },
             {
                 name: "Dark Teal Embroidered T-Shirt",
-                description: "A dark teal T-shirt with a subtle embroidered 'Yes We See' detail. This piece combines casual comfort with refined detailing for a modern streetwear look.",
                 images: ["HT 2.jpg", "HT 2.1.jpg", "HT 2.2.jpg"]
             },
             {
                 name: "Light Grey Mountain Print T-Shirt",
-                description: "ightweight and breathable T-shirt with a scenic mountain-inspired graphic. This relaxed-fit tee is ideal for adventurous souls who love minimalist design and outdoor aesthetics.",
                 images: ["HT 3.jpg", "HT 3.1.jpg", "HT 3.2.jpg"]
             }
         ],

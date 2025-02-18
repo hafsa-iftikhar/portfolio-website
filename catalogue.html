@@ -229,36 +229,27 @@
     background-color: #444;
 }
 
-.products-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Dynamic column sizing */
-    gap: 20px; /* Space between items */
+#product-container {
+  display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjust size as needed */
+    gap: 10px; /* Spacing between items */
     padding: 10px;
-    width: 100%;
-    max-width: 1200px; /* Optional: Adjust for desktop */
-    margin: 0 auto; /* Centering the grid */
+    width: 100%; 
 }
 
+/* Ensure Product Cards Look Proper */
 .product-card {
-    width: 100%;
-    text-align: center; /* Center text and buttons */
+  width: 100%; /* Let grid control the width */
+    max-width: 100%;
 }
-
-.product-card img {
-    width: 100%; /* Ensure images fill their container */
-    height: auto;
-    object-fit: cover; /* Ensure images maintain aspect ratio */
-}
-
 
 .product-card:hover {
   transform: scale(1.05);
 }
 
-.product-image {
-  width: 100%;
+.product-card img {
+  width: 100%; /* Make images responsive */
   height: auto;
-  border-radius: 10px;
 }
 
 .product-info {
@@ -637,7 +628,6 @@ p {
                 <img src="${product.images[0]}" alt="${product.name}" class="product-image" onclick="openModal(${index}, '${category}')">
                 <div class="product-info">
                     <h3>${product.name}</h3>
-                    <p>${product.description}</p>
                 </div>
             `;
 

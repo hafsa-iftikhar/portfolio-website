@@ -196,28 +196,30 @@
 }
 
 /* First Section */
-/* First Section */
 .hero {
     display: flex;
+    flex-wrap: wrap; /* Allow content to wrap for responsiveness */
     align-items: center;
     justify-content: center;
-    flex-direction: column; /* Ensure consistent stacking */
-    text-align: center;
     padding: 50px;
     background-color: #ffffff;
     min-height: 100vh;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    gap: 20px; /* Add spacing between elements on wrap */
 }
 
 .hero-text {
-    max-width: 60%; /* Control width on larger screens */
-    text-align: center; /* Center text */
+    max-width: 50%; /* Limit text width for desktops */
+    text-align: justify;
+    flex: 1;
+    margin-right: 20px;
 }
 
 .hero-text h1 {
     font-size: 40px;
     margin-bottom: 20px;
     color: #333;
+    text-align: left;
 }
 
 .hero-text p {
@@ -227,16 +229,9 @@
 }
 
 .button-container {
-    margin-top: 20px;
+  text-align: left;
+  margin-top: 20px;
 }
-
-/* Responsive Fix */
-@media (max-width: 768px) {
-    .hero-text {
-        max-width: 90%; /* Allow text to take more space on mobile */
-    }
-}
-
 
 /* Scroll to second section button */
 .scroll-button {
@@ -545,6 +540,46 @@
     padding: 10px 15px;
     font-size: 14px;
     font-family: Arial, sans-serif;
+}
+
+/*1 sectionn*/
+/* Adjustments for Small Screens */
+@media (max-width: 480px) {
+    .logo {
+        font-size: 24px;
+    }
+
+    .nav-links a {
+        font-size: 14px;
+    }
+
+    .cta {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+
+    .hero {
+      padding-top: 100px !important;
+      text-align: center; /* Centers text for better mobile view */
+    }
+
+    .hero-text h1 {
+        font-size: 28px;
+
+    }
+
+    .hero-text p {
+        font-size: 0.8rem;
+    }
+
+    .hero-buttons a {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+
+    .hero-image img {
+        max-width: 90%;
+    }
 }
 
 /* 3 section */

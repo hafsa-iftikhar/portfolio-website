@@ -1,527 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us - Brand Curb</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
-  <style>
-        /* General Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Baloo 2', cursive;
-    }
-
-    /* Body and Typography */
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      text-align: justify;
-      background-color: #f4f4f4;
-      color: #333;
-      height: 100%;
-      margin: 0;
-      line-height: 1.6;
-      padding: 80px;
-    }
-
-/* Header Styles */
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(20, 20, 20, 0.9); /* Dark Blue with slight transparency */
-  backdrop-filter: blur(10px); /* Soft glass effect */
-  border-bottom: 2px solid rgba(189, 195, 199, 0.2); /* Light Gray Border */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  z-index: 1000;
-  padding: 10px 25px;
-  transition: all 0.3s ease-in-out;
-  animation: fadeInDown 0.8s ease-in-out;
-}
-
-/* Header Animation */
-@keyframes fadeInDown {
-  0% {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.header-box {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: nowrap;
-  width: 100%;
-}
-
-/* Logo Styling */
-.logo {
-  font-size: 24px;
-  font-weight: 700;
-  color: #ecf0f1; /* Light color from your palette */
-}
-
-.logo-text {
-  color: #ecf0f1; /* Light grey */
-}
-
-.logo-highlight {
-  color: #e01010; /* Accent color if you want a different tone */
- height: auto;
-}
-/* Navigation */
-.nav {
-  display: flex;
-  align-items: center;
-  margin: 0 auto;
-}
-
-.nav-links {
-  display: flex;
-  list-style: none;
-  gap: 20px;
-  flex-wrap: nowrap;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: #f5f5f5; /* Light Gray */
-  padding: 10px 15px;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  position: relative;
-  letter-spacing: 0.5px;
-}
-
-/* Hover Effect with Secondary Blue */
-.nav-links a:hover {
-  color: #686666; /* Secondary Blue */
-}
-
-.nav-links a::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  width: 0%;
-  height: 2px;
-  background: #5f6060; /* Muted Gray underline */
-  transition: width 0.3s ease, left 0.3s ease;
-}
-
-.nav-links a:hover::after {
-  width: 100%;
-  left: 0;
-}
-
-/* Call to Action Button */
-.cta {
-  background: linear-gradient(135deg, #b90505, #b90505); /* Dark Blue to Light Gray */
-  color: rgb(244, 244, 244);
-  border: none;
-  padding: 12px 24px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-weight: bold;
-  text-transform: uppercase;
-  box-shadow: 0 4px 10px rgba(127, 140, 141, 0.3);
-}
-
-.cta:hover {
-  background: linear-gradient(135deg, #e13c3c, #d21f1f);
-  box-shadow: 0 6px 15px rgba(241, 46, 46, 0.4);
-}
-
-
-/* Responsive Styling for Smaller Screens */
-@media (max-width: 768px) {
-  .header-box {
-    flex-wrap: wrap; /* Prevent wrapping */
-    overflow-x: hidden; /* Allow horizontal scrolling if content overflows */
-  }
-
-  .nav-links {
-    flex-shrink: 0; /* Prevent shrinking */
-    gap: 10px; /* Adjust spacing for smaller screens */
-  }
-
-  .nav-links a {
-    display: block; /* Make links take full width */
-    text-align: center; /* Center text */
-    padding: 10px;
-  }
-
-  .cta {
-    padding: 8px 15px; /* Adjust button size */
-  }
-}
-
- /* Responsive Design */
- @media (max-width: 480px) {
-      .logo {
-        font-size: 24px;
-      }
-
-      .nav-links a {
-        font-size: 14px;
-      }
-
-      .cta {
-        font-size: 14px;
-        padding: 8px 15px;
-      }
-
-      .footer-logo {
-        font-size: 24px;
-      }
-    }
-
-    /* Keyframes for the animation */
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-/*section 2*/
-/* Category Buttons */
-.container {
-    width: 100%;
-    max-width: 100%;
-    padding: 0 10px; /* Optional padding */
-}
-
-.category-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    padding: 20px 0;
-    flex-wrap: wrap;
-    margin-top: 20px;
-}
-
-.category-buttons button {
-    background-color: #222;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 16px;
-    border-radius: 5px;
-    transition: background 0.3s ease;
-}
-
-.category-buttons button:hover {
-    background-color: #444;
-}
-
-#product-container {
-  display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjust size as needed */
-    gap: 10px; /* Spacing between items */
-    padding: 10px;
-    width: 100%; 
-}
-
-/* Ensure Product Cards Look Proper */
-.product-card {
-  width: 100%; /* Let grid control the width */
-    max-width: 100%;
-}
-
-.product-card:hover {
-  transform: scale(1.05);
-}
-
-.product-card img {
-  width: 100%; /* Make images responsive */
-  height: auto;
-}
-
-.product-info {
-    padding: 10px 0;
-}
-
-h3 {
-    font-size: 16px;
-    color: #333;
-    margin: 5px 0;
-}
-
-p {
-    font-size: 14px;
-    color: #666;
-}
-
-/* Modal Styles */
-/* Modal (Overlay) */
-#image-modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-}
-
-/* Center Image */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.8); /* Dark transparent overlay */
-  justify-content: center;
-  align-items: center;
-  z-index: 1000; /* Ensures it's above everything */
-}
-.modal-content {
-  position: relative;
-  max-width: 90%;
-  max-height: 80%;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-#modal-image {
-    width: 100%;
-    max-height: 80vh;
-    border-radius: 8px;
-}
-
-/* ❌ Close Button (Now Visible) */
-.close-btn {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  font-size: 24px;
-  color: white;
-  background: rgba(0, 0, 0, 0.7);
-  padding: 10px;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 1001; /* Above modal */
-}
-
-.close-btn:hover {
-    background: rgba(255, 255, 255, 0.8);
-    color: black;
-}
-
-/* Navigation Buttons */
-.prev, .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.7);
-    border: none;
-    padding: 10px 15px;
-    font-size: 20px;
-    cursor: pointer;
-    transition: 0.3s;
-    border-radius: 5px;
-}
-
-.prev { left: 20px; }
-.next { right: 20px; }
-
-.prev:hover, .next:hover {
-    background: white;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  #product-container {
-    grid-template-columns: repeat(2, 1fr); /* Two columns for mobile */
-  }
-
-    .product-card {
-        width: 100%;
-    }
-
-    .category-buttons {
-        flex-direction: row;
-        justify-content: center;
-    }
-}
-
-@media (max-width: 480px) {
-    #product-container {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .product-card {
-        width: 100%;
-    }
-
-    .modal-content {
-        width: 90%;
-        height: auto;
-        padding: 15px;
-    }
-
-    .modal-content img {
-        max-width: 90%;
-        max-height: 90%;
-        object-fit: contain;
-        transition: opacity 0.3s ease-in-out;
-    }
-
-    .close-btn {
-        font-size: 25px;
-        top: 10px;
-        right: 15px;
-    }
-
-    .prev, .next {
-        padding: 5px 10px;
-        font-size: 16px;
-    }
-
-    .category-buttons button {
-        font-size: 14px;
-        padding: 8px 15px;
-    }
-}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Catalog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f5f5f5;
+        }
+        .container {
+            width: 90%;
+            margin: auto;
+            text-align: center;
+        }
+        .filter-buttons button {
+            margin: 10px;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            background: #333;
+            color: white;
+            border-radius: 5px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .product {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .product-slider img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .product h3 {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
-  <!-- Header -->
-  <header class="header">
-    <div class="header-box">
-      <div class="logo">
-        <span class="logo-text">Iftikhar</span><span class="logo-highlight"> Corporation</span>
-      </div>
-      <nav class="nav">
-        <ul class="nav-links">
-            <li><a href="header.html">Home</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="catalogue.html">Catalogue</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
+    <div class="container">
+        <h1>Product Catalog</h1>
+        <div class="filter-buttons">
+            <button onclick="filterProducts('polo')">Stitched</button>
+            <button onclick="filterProducts('rawFabric')">Raw Fabric</button>
+        </div>
+        <div id="product-grid" class="grid"></div>
     </div>
-</header>
-<br>
-<div class="category-buttons">
-  <button onclick="showCategory('polo')">Stitched</button>
-  <button onclick="showCategory('rawFabric')">Raw Fabric</button>
-</div>
 
-<div id="product-container" class="product-grid"></div>
-
-<!-- Fullscreen Image Modal -->
-<div id="image-modal" class="modal">
-  <span class="close-btn" onclick="closeModal()">✖</span>
-  <button class="prev" onclick="changeImage(-1)">&lt;</button>
-  <div class="modal-content">
-      <img id="modal-image" src="" alt="Product Image">
+    <!-- Lightbox for image preview -->
+    <div class="lightbox" id="lightbox">
+      <button class="close-btn" onclick="closeLightbox()">✖</button>
+      <button class="prev-btn" onclick="prevImage()">◀</button>
+      <img id="lightbox-img" src="">
+      <button class="next-btn" onclick="nextImage()">▶</button>
   </div>
-  <button class="next" onclick="changeImage(1)">&gt;</button>
-</div>
-  <script>
-    const products = {
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+        const products = {
         polo: [
         {
                 name: "Black Button-Up Knit Shirt",
+                description: "A sleek black knit shirt with a button-up design, combining minimalism and sophistication.",
                 images: ["nb2.jpg", "nb1.jpg", "nb.jpg", "nb3.jpg"]
             },
             {
                 name: "Beige Knit Button-Up",
+                description: "A lightweight ribbed button-up, perfect for layering with a relaxed, timeless style.",
                 images: ["cb3.jpg", "cb2.jpg", "cb1.jpg", "cb1.jpg"]
             },
             {
                 name: "Cream Collared Long-Sleeve Polo",
+                description: "Soft cream pullover with a sleek collar and contrast piping for a timeless smart-casual vibe.",
                 images: ["w.jpg", "w1.jpg", "w2.jpg"]
             },
             {
                 name: "Striped Button-Up Shirt with Gurkha Pants",
+                description: "This sophisticated ensemble combines a classic striped button-up shirt with modern high-waisted Gurkha pants.",
                 images: ["be.jpg", "be1.jpg", "be2.jpg"]
             },
             {
                 name: "Evergreen Long-Sleeve Polo",
+                description: "A classic long-sleeve polo with contrast piping, ideal for a polished casual look.",
                 images: ["g1.jpg", "g2.jpg"]
             },
             {
                 name: "Rust Orange Long-Sleeve Polo",
+                description: "Classic orange polo with white-tipped details, perfect for a bold yet refined casual look.",
                 images: ["o.jpg"]
             },
             {
                 name: "Navy V-Neck Long-Sleeve Polo",
+                description: "A modern navy polo with a sleek v-neck detail, blending comfort and elegance.",
                 images: ["b.jpg", "b1.jpg", "b2.jpg"]
             },
         {
                 name: "Black Textured Polo",
+                description: "Solid black Textured polo with a minimalist design and stretchable material for a modern look.",
                 images: ["p1.jpg"]
             },
             {
                 name: "Pink Textured Polo",
+                description: "Light pink textured polo with short sleeves, classic collar, and breathable fabric.",
                 images: ["p2.jpg"]
             },
             {
                 name: "Green Button-Up Polo",
+                description: "Light green short-sleeve polo shirt with a soft collar and button-up design. Perfect for casual wear, offering a relaxed fit with breathable fabric.",
                 images: ["s1.jpg"]
             },
             {
                 name: "White Button-Up Polo",
+                description: "Crisp white short-sleeve polo shirt with a button-up style and a relaxed fit. Simple yet versatile, suitable for any casual occasion.",
                 images: ["s2.jpg"]
             },
             {
                 name: "Black Button-Up Polo",
+                description: "Stylish black short-sleeve polo shirt featuring a button-up front and a sleek, modern look. Ideal for both casual and semi-formal outfits.",
                 images: ["s3.jpg"]
             },
             {
                 name: "Brown Zipper Polo",
+                description: "A classic brown polo shirt with a sleek zipper detail on the front, offering a warm and earthy tone. Perfect for smart-casual occasions.",
                 images: ["t2.jpg"]
             },
             {
                 name: "Black Zipper Polo",
+                description: " A sleek black polo shirt with a front zipper detail, combining modern style with comfort. Perfect for casual and smart-casual looks.",
                 images: ["t1.jpg"]
             },
             {
                 name: "White Zipper Polo",
+                description: "A clean and crisp white polo shirt with a front zipper, blending timeless elegance with a modern touch. Ideal for a polished casual look.",
                 images: ["t3.jpg"]
             },
             {
                 name: "Iftikhar Corporation Exclusive",
+                description: "Redefining style with timeless designs and premium craftsmanship.",
                 images: ["tg.jpg", "tg1.jpg", "tg2.jpg", "tg3.jpg"]
             },
             {
                 name: "Reconnect Graphic Tee",
+                description: "A comfortable oversized T-shirt featuring a bold 'Reconnect' glitch-style graphic print. Perfect for casual wear with a street-style vibe. Made from premium cotton for softness and durability.",
                 images: ["HT 1.jpg", "HT 1.1.jpg", "HT 1.2.jpg"]
             },
             {
                 name: "Dark Teal Embroidered T-Shirt",
+                description: "A dark teal T-shirt with a subtle embroidered 'Yes We See' detail. This piece combines casual comfort with refined detailing for a modern streetwear look.",
                 images: ["HT 2.jpg", "HT 2.1.jpg", "HT 2.2.jpg"]
             },
             {
                 name: "Light Grey Mountain Print T-Shirt",
+                description: "ightweight and breathable T-shirt with a scenic mountain-inspired graphic. This relaxed-fit tee is ideal for adventurous souls who love minimalist design and outdoor aesthetics.",
                 images: ["HT 3.jpg", "HT 3.1.jpg", "HT 3.2.jpg"]
             }
         ],
@@ -613,49 +256,36 @@ p {
             },
         ]
     };
-
-    let currentImages = [];
-    let currentIndex = 0;
-
-    function showCategory(category) {
-        const container = document.getElementById("product-container");
-        container.innerHTML = "";
-
-        products[category].forEach((product, index) => {
-            let productDiv = document.createElement("div");
-            productDiv.classList.add("product-card");
-            productDiv.innerHTML = `
-                <img src="${product.images[0]}" alt="${product.name}" class="product-image" onclick="openModal(${index}, '${category}')">
-                <div class="product-info">
+        
+        function filterProducts(category) {
+            const grid = document.getElementById("product-grid");
+            grid.innerHTML = "";
+            
+            products[category].forEach(product => {
+                let productHTML = `<div class='product'>
+                    <div class='product-slider'>`;
+                product.images.forEach(img => {
+                    productHTML += `<img src="${img}" alt="${product.name}">`;
+                });
+                productHTML += `</div>
                     <h3>${product.name}</h3>
-                </div>
-            `;
-
-            container.appendChild(productDiv);
-        });
-    }
-
-    function openModal(index, category) {
-        currentImages = products[category][index].images;
-        currentIndex = 0;
-
-        let modal = document.getElementById("image-modal");
-        let modalImage = document.getElementById("modal-image");
-
-        modalImage.src = currentImages[currentIndex];
-        modal.style.display = "flex";
-    }
-
-    function changeImage(direction) {
-        currentIndex = (currentIndex + direction + currentImages.length) % currentImages.length;
-        document.getElementById("modal-image").src = currentImages[currentIndex];
-    }
-
-    function closeModal() {
-        document.getElementById("image-modal").style.display = "none";
-    }
-
-    showCategory("polo");
-  </script>
+                </div>`;
+                
+                grid.innerHTML += productHTML;
+            });
+            
+            setTimeout(() => {
+                $('.product-slider').slick({
+                    dots: true,
+                    infinite: true,
+                    speed: 300,
+                    slidesToShow: 1,
+                    adaptiveHeight: true
+                });
+            }, 100);
+        }
+        
+        filterProducts('polo');
+    </script>
 </body>
 </html>

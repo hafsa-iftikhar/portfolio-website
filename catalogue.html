@@ -199,6 +199,12 @@
 }
 /*section 2*/
 /* Category Buttons */
+.container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 10px; /* Optional padding */
+}
+
 .category-buttons {
     display: flex;
     justify-content: center;
@@ -225,23 +231,16 @@
 
 #product-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Adjust size dynamically */
-  gap: 15px; /* Space between items */
-  justify-content: center;
-  align-items: start;
-  padding: 20px;
-  max-width: 1200px; /* Ensures it doesn't get too wide on large screens */
-  margin: 0 auto;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Adjust size as needed */
+    gap: 10px; /* Spacing between items */
+    padding: 10px;
+    width: 100%; 
 }
 
 /* Ensure Product Cards Look Proper */
 .product-card {
-  background: white;
-  padding: 10px;
-  border-radius: 10px;
-  text-align: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  width: 100%; /* Let grid control the width */
+    max-width: 100%;
 }
 
 .product-card:hover {

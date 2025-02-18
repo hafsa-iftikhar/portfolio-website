@@ -546,48 +546,15 @@
     }
 
 /* Footer Styling */
-.footer {
-  background-color: rgb(217, 217, 218); /* Dark gray background */
-  padding: 0.7px; /* Vertical padding */
-  width: 100%; /* Full width of the footer */
-  position: fixed; /* Sticks to the bottom */
-  bottom: 0;
-  left: 0;
-}
-
-.footer-container {
-  max-width: 1350px;
-  margin: 0 auto;
-  padding: 0 20px; /* Horizontal padding */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap; /* Responsive layout for smaller screens */
-}
-
-.footer-social-media h4 {
-  font-size: 16px;
-  margin-bottom: 10px;
-  color: #1c1c1c;
-}
-
-.footer-copyright {
-  text-align: right;
-  font-size: 16px;
-  color: #525252;
-  font-weight: bolder;
-}
-
-@media (max-width: 768px) {
-  .footer-container {
-    flex-direction: column; /* Stack elements on small screens */
+.site-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #000; /* Adjust color */
+    color: #fff;
     text-align: center;
-  }
-
-  .footer-copyright {
-    margin-top: 10px;
-    text-align: center;
-  }
+    padding: 10px 0;
+    font-size: 14px;
 }
 
 /*1 sectionn*/
@@ -879,15 +846,10 @@
   </div>
 
 <!-- Footer Section -->
-<footer class="footer">
-  <div class="footer-container">
-    <div class="footer-social-media">
-    </div>
-    <div class="footer-copyright">
-      <p>&copy; "IC Textile: Where Innovation Meets Style, Crafting Quality You Can Trust!"</p>
-    </div>
-  </div>
+<footer class="site-footer">
+  <p>&copy; 2025 All rights reserved. Design and Developed By Geeks Of Technologia.</p>
 </footer>
+
   <script>
     const modal = document.getElementById("bookingModal");
     const btn = document.getElementById("scheduleMeetingBtn");

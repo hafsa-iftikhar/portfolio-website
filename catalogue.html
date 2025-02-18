@@ -6,13 +6,187 @@
     <title>Product Catalog</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
+
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #f5f5f5;
-        }
+        * {
+      font-family: 'Baloo 2', cursive;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    } 
+    
+        .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(20, 20, 20, 0.9); /* Dark Blue with slight transparency */
+  backdrop-filter: blur(10px); /* Soft glass effect */
+  border-bottom: 2px solid rgba(189, 195, 199, 0.2); /* Light Gray Border */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  padding: 10px 25px;
+  transition: all 0.3s ease-in-out;
+  animation: fadeInDown 0.8s ease-in-out;
+}
+
+/* Header Animation */
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+/* Logo Styling */
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: #ecf0f1; /* Light color from your palette */
+}
+
+.logo-text {
+  color: #ecf0f1; /* Light grey */
+}
+
+.logo-highlight {
+  color: #e01010; /* Accent color if you want a different tone */
+ height: auto;
+}
+/* Navigation */
+.nav {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  flex-wrap: nowrap;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #f5f5f5; /* Light Gray */
+  padding: 10px 15px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+  letter-spacing: 0.5px;
+}
+
+/* Hover Effect with Secondary Blue */
+.nav-links a:hover {
+  color: #686666; /* Secondary Blue */
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: #5f6060; /* Muted Gray underline */
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Call to Action Button */
+.cta {
+  background: linear-gradient(135deg, #b90505, #b90505); /* Dark Blue to Light Gray */
+  color: rgb(244, 244, 244);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  text-transform: uppercase;
+  box-shadow: 0 4px 10px rgba(127, 140, 141, 0.3);
+}
+
+.cta:hover {
+  background: linear-gradient(135deg, #e13c3c, #d21f1f);
+  box-shadow: 0 6px 15px rgba(241, 46, 46, 0.4);
+}
+
+
+/* Responsive Styling for Smaller Screens */
+@media (max-width: 768px) {
+  .header-box {
+    flex-wrap: wrap; /* Prevent wrapping */
+    overflow-x: hidden; /* Allow horizontal scrolling if content overflows */
+  }
+
+  .nav-links {
+    flex-shrink: 0; /* Prevent shrinking */
+    gap: 10px; /* Adjust spacing for smaller screens */
+  }
+
+  .nav-links a {
+    display: block; /* Make links take full width */
+    text-align: center; /* Center text */
+    padding: 10px;
+  }
+
+  .cta {
+    padding: 8px 15px; /* Adjust button size */
+  }
+}
+
+ /* Responsive Design */
+ @media (max-width: 480px) {
+      .logo {
+        font-size: 24px;
+      }
+
+      .nav-links a {
+        font-size: 14px;
+      }
+
+      .cta {
+        font-size: 14px;
+        padding: 8px 15px;
+      }
+
+      .footer-logo {
+        font-size: 24px;
+      }
+    }
+
+    /* Keyframes for the animation */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+        /*2 pagee */
         .container {
             width: 90%;
             margin: auto;
@@ -50,7 +224,23 @@
     </style>
 </head>
 <body>
-    <div class="container">
+  <!-- Header -->
+  <header class="header">
+    <div class="header-box">
+      <div class="logo">
+        <span class="logo-text">Iftikhar</span><span class="logo-highlight"> Corporation</span>
+      </div>
+      <nav class="nav">
+        <ul class="nav-links">
+            <li><a href="header.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="catalogue.html">Catalogue</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+</header>
+    <div class="container">&nbsp;
         <h1>Product Catalog</h1>
         <div class="filter-buttons">
             <button onclick="filterProducts('polo')">Stitched</button>
@@ -58,14 +248,6 @@
         </div>
         <div id="product-grid" class="grid"></div>
     </div>
-
-    <!-- Lightbox for image preview -->
-    <div class="lightbox" id="lightbox">
-      <button class="close-btn" onclick="closeLightbox()">✖</button>
-      <button class="prev-btn" onclick="prevImage()">◀</button>
-      <img id="lightbox-img" src="">
-      <button class="next-btn" onclick="nextImage()">▶</button>
-  </div>
     
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>

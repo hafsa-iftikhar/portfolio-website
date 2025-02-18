@@ -225,22 +225,27 @@
 
 #product-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Adjusts dynamically */
-  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Adjust size dynamically */
+  gap: 15px; /* Space between items */
   justify-content: center;
-  padding: 10px;
+  align-items: start;
+  padding: 20px;
+  max-width: 1200px; /* Ensures it doesn't get too wide on large screens */
+  margin: 0 auto;
 }
 
+/* Ensure Product Cards Look Proper */
 .product-card {
   background: white;
-  border-radius: 10px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
   padding: 10px;
-} 
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
 
 .product-card:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .product-image {

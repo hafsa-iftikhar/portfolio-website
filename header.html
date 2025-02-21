@@ -701,38 +701,65 @@
 .intro-text span:nth-child(8) { 
     margin-right: 20px; /* Adjust spacing */
 }
+
 /* Video Section */
-.video-section {
-    position: relative;
-    width: 100%;
-    height: 100vh; /* Full screen */
-    overflow: hidden;
+/* Video Section */
+#video-intro {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
 }
 
-.video-section video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensures the video covers the section without distortion */
-    display: block;
+#intro-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.video-section::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.3); /* Dark overlay */
+/* Sound Toggle Button */
+#sound-toggle {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.3s;
+  z-index: 10; /* Ensures Button Appears Above Video */
 }
 
-/* Ensuring responsiveness on small screens */
+#sound-toggle:hover {
+  background: rgba(255, 255, 255, 0.8);
+  color: black;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-    .video-section {
-        height: 50vh; /* Adjust height for mobile */
-    }
+  #sound-toggle {
+    font-size: 16px;
+    padding: 10px 15px;
+    bottom: 15px;
+    right: 15px;
+  }
 }
 
+@media (max-width: 480px) {
+  #sound-toggle {
+    font-size: 14px;
+    padding: 8px 12px;
+    bottom: 10px;
+    right: 10px;
+  }
+}
 
   </style>
 </head>
@@ -753,15 +780,7 @@
       </nav>
     </div>
 </header>
-<!-- Video Section -->
-<section class="video-section">
-  <video autoplay loop muted playsinline>
-      <source src="Factory.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-  </video>
-</section>
 
-</section>
 <!-- Intro Page -->
 <div id="intro" class="intro-screen">
   <div class="knitted-character"></div>
@@ -774,6 +793,15 @@
     <span class="emoji">🧶</span>
   </h1>
 </div>
+
+<!-- Video Intro Section -->
+<section id="video-intro">
+  <video autoplay loop muted playsinline id="intro-video">
+    <source src="Factory1.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <button id="sound-toggle">🔊</button> <!-- Sound Toggle Button -->
+</section>
   <!-- First Section -->
 <section class="hero">
   <div class="hero-text">&nbsp;
@@ -997,6 +1025,23 @@ document.addEventListener("DOMContentLoaded", function () {
         introScreen.style.display = 'none'; // Hide the intro screen
     });
 });
+// for voicee
+document.addEventListener("DOMContentLoaded", function () {
+  const video = document.getElementById("intro-video");
+  const soundToggle = document.getElementById("sound-toggle");
+
+  soundToggle.addEventListener("click", function () {
+    if (video.muted) {
+      video.muted = false;
+      soundToggle.textContent = "🔊"; // Mute Icon
+    } else {
+      video.muted = true;
+      soundToggle.textContent = "🔇"; // Unmute Icon
+    }
+  });
+});
+
+
 
 </script>
 </body>
